@@ -7,7 +7,7 @@ class CustomElevatedButton extends StatelessWidget {
   final Color buttonColor;
   final Color iconColor;
   final VoidCallback onPressed;
-  final double width;
+  final double? width;
   final double height;
 
   CustomElevatedButton({
@@ -16,7 +16,7 @@ class CustomElevatedButton extends StatelessWidget {
     required this.buttonColor,
     required this.iconColor,
     required this.onPressed,
-    required this.width,
+    this.width,
     required this.height,
   });
 
@@ -26,7 +26,6 @@ class CustomElevatedButton extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      width: width,
       height: height,
       child: ElevatedButton(
         onPressed: onPressed,
