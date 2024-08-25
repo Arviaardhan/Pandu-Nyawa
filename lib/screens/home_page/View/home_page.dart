@@ -6,8 +6,11 @@ import 'package:pandu_nyawa/screens/home_page/component/footer.dart';
 import 'package:pandu_nyawa/widgets/button.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../../navigation_page/controller/navigator_controller.dart';
+
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
+  final NavigatorController controller = Get.put(NavigatorController());
   HomeController homeController = Get.find<HomeController>();
 
 
@@ -17,6 +20,7 @@ class HomePage extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      extendBody: true,
       backgroundColor: Color(0xFFFFF5D7),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenHeight * 0.08),
@@ -110,31 +114,36 @@ class HomePage extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Expanded(
-                                    child: CustomElevatedButton(
-                                      image: 'lib/assets/icons/icon-first-aid.png',
-                                      height: screenHeight * 0.07,
-                                      text: 'First Aid',
-                                      buttonColor: Colors.white,
-                                      iconColor: Color(0xFFF9AF2A),
-                                      onPressed: () {
-                                        homeController.carouselSliderController.animateToPage(0); // Jump to the second slide
-                                      },
+                                  Obx(()=> Expanded(
+                                      child: CustomElevatedButton(
+                                        height: screenHeight * 0.07,
+                                        text: 'First Aid',
+                                        buttonColor: homeController.currentindex.value == 0 ?  Color(0xFFF9AF2A): Colors.white ,
+                                        style: GoogleFonts.lexend(fontSize: 13, color:  homeController.currentindex.value == 0 ? Colors.white : Colors.black, fontWeight: FontWeight.w600),
+                                        iconColor: homeController.currentindex.value == 0 ? Colors.white : Color(0xFFF9AF2A),
+                                        onPressed: () {
+                                          homeController.currentindex.value = 0;
+                                          homeController.carouselSliderController.animateToPage(0); // Jump to the second slide
+                                        },
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
                                     width: 15,
                                   ),
-                                  Expanded(
-                                    child: CustomElevatedButton(
-                                      image: 'lib/assets/icons/icon-first-aid.png',
-                                      height: screenHeight * 0.07,
-                                      text: 'Identify',
-                                      buttonColor: Colors.white,
-                                      iconColor: Color(0xFF6750A4),
-                                      onPressed: () {
-                                        homeController.carouselSliderController.animateToPage(1); // Jump to the second slide
-                                      },
+                                  Obx(() =>
+                                      Expanded(
+                                      child: CustomElevatedButton(
+                                        height: screenHeight * 0.07,
+                                        text: 'Identify',
+                                        style: GoogleFonts.lexend(fontSize: 13, color:  homeController.currentindex.value == 1 ? Colors.white : Colors.black, fontWeight: FontWeight.w600),
+                                        buttonColor: homeController.currentindex.value == 1 ?Color(0xFF6750A4):Colors.white,
+                                        iconColor: homeController.currentindex.value == 1 ?Colors.white: Color(0xFF6750A4),
+                                        onPressed: () {
+                                          homeController.currentindex.value = 1;
+                                          homeController.carouselSliderController.animateToPage(1); // Jump to the second slide
+                                        },
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -148,31 +157,44 @@ class HomePage extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Expanded(
-                                    child: CustomElevatedButton(
-                                      image: 'lib/assets/icons/icon-first-aid.png',
-                                      height: screenHeight * 0.07,
-                                      text: 'Simulation',
-                                      buttonColor: Colors.white,
-                                      iconColor: Color(0xFF649DF6),
-                                      onPressed: () {
-                                        homeController.carouselSliderController.animateToPage(2); // Jump to the second slide
-                                      },
+                                  Obx(() => Expanded(
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 300), // Adjust the duration as needed
+                                      child: CustomElevatedButton(
+                                        height: screenHeight * 0.07,
+                                        style: GoogleFonts.lexend(
+                                            fontSize: 13,
+                                            color: homeController.currentindex.value == 2 ? Colors.white : Colors.black,
+                                            fontWeight: FontWeight.w600
+                                        ),
+                                        text: 'Simulation',
+                                        buttonColor: homeController.currentindex.value == 2 ? Color(0xFF649DF6) : Colors.white,
+                                        iconColor: homeController.currentindex.value == 2 ? Colors.white : Color(0xFF649DF6),
+                                        onPressed: () {
+                                          homeController.currentindex.value = 2;
+                                          homeController.carouselSliderController.animateToPage(2); // Jump to the second slide
+                                        },
+                                      ),
                                     ),
-                                  ),
+                                  )),
+
                                   SizedBox(
                                     width: 15,
                                   ),
-                                  Expanded(child: CustomElevatedButton(
-                                    image: 'lib/assets/icons/icon-first-aid.png',
-                                    height: screenHeight * 0.07,
-                                    text: 'Emergency',
-                                    buttonColor: Colors.white,
-                                    iconColor: Color(0xFFB3261E),
-                                    onPressed: () {
-                                      homeController.carouselSliderController.animateToPage(3); // Jump to the second slide
-                                    },
-                                  ),)
+                                  // Icon(Icons.shield),
+                                  Obx((){
+                                    return Expanded(child: CustomElevatedButton(
+                                      height: screenHeight * 0.07,
+                                      text: 'Emergency',
+                                      style: GoogleFonts.lexend(fontSize: 13, color:  homeController.currentindex.value == 3 ?  Colors.white  : Colors.black, fontWeight: FontWeight.w600),
+                                      buttonColor: homeController.currentindex.value == 3 ? Color(0xFFB3261E) : Colors.white,
+                                      iconColor:homeController.currentindex.value == 3 ?Colors.white: Color(0xFFB3261E),
+                                      onPressed: () {
+                                        homeController.currentindex.value = 3;
+                                        homeController.carouselSliderController.animateToPage(3); // Jump to the second slide
+                                      },
+                                    ),);
+                                  })
                                 ],
                               ),
                             ),
@@ -182,65 +204,78 @@ class HomePage extends StatelessWidget {
                       SizedBox(
                         height:screenHeight * 0.08,
                       ),
-                      CarouselSlider(
-                        carouselController: homeController.carouselSliderController,
-                        options: CarouselOptions(
-                          height: screenHeight * 0.4,
-                          viewportFraction: 0.6,
-                          enlargeCenterPage: true,
-                          autoPlay: true,
-                          autoPlayInterval:   const Duration(seconds: 5),
-                          autoPlayAnimationDuration: const Duration(milliseconds: 2000),
-                          aspectRatio: 16 / 9,
-                          enableInfiniteScroll: false,
+                    CarouselSlider(
+                          carouselController: homeController.carouselSliderController,
+                          options: CarouselOptions(
+                            height: screenHeight * 0.4,
+                            viewportFraction: 0.6,
+                            enlargeCenterPage: true,
+                            // autoPlay: true,
+                            // pauseAutoPlayOnManualNavigate:true,
+                            // autoPlayInterval:   const Duration(seconds: 5),
+                            // autoPlayAnimationDuration: const Duration(milliseconds: 2000),
+                            aspectRatio: 16 / 9,
+                            enableInfiniteScroll: false,
+                            // onPageChanged: (index, reason) {
+                            //   homeController.currentindex.value = index;
+                            //   print(homeController.currentindex.value);
+                            // },
+                          ),
+                          items: [
+                            InkWell(
+                              onTap: () {
+                                controller.currentIndex.value = 1;
+                                print(controller.currentIndex.value);
+                                print(controller.currentIndex.value);
+                                print('object');
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Color(0xFFF9AF2A),
+                                ),
+                                child: Center(
+                                  child: Text('Box 1',
+                                      style: GoogleFonts.lexend(
+                                          fontSize: 16, color: Colors.white)),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color(0xFF6750A4),
+                              ),
+                              child: Center(
+                                child: Text('Box 2',
+                                    style: GoogleFonts.lexend(
+                                        fontSize: 16, color: Colors.white)),
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color(0xFF649DF6),
+                              ),
+                              child: Center(
+                                child: Text('Box 3',
+                                    style: GoogleFonts.lexend(
+                                        fontSize: 16, color: Colors.white)),
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color(0xFFB3261E),
+                              ),
+                              child: Center(
+                                child: Text('Box 4',
+                                    style: GoogleFonts.lexend(
+                                        fontSize: 16, color: Colors.white)),
+                              ),
+                            ),
+                          ],
                         ),
-                        items: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color(0xFFF9AF2A),
-                            ),
-                            child: Center(
-                              child: Text('Box 1',
-                                  style: GoogleFonts.lexend(
-                                      fontSize: 16, color: Colors.white)),
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color(0xFF6750A4),
-                            ),
-                            child: Center(
-                              child: Text('Box 2',
-                                  style: GoogleFonts.lexend(
-                                      fontSize: 16, color: Colors.white)),
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color(0xFF649DF6),
-                            ),
-                            child: Center(
-                              child: Text('Box 3',
-                                  style: GoogleFonts.lexend(
-                                      fontSize: 16, color: Colors.white)),
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color(0xFFB3261E),
-                            ),
-                            child: Center(
-                              child: Text('Box 4',
-                                  style: GoogleFonts.lexend(
-                                      fontSize: 16, color: Colors.white)),
-                            ),
-                          ),
-                        ],
-                      ),
                     ],
                   ),
                 ),
@@ -253,3 +288,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
