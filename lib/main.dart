@@ -13,7 +13,7 @@ class MyApp extends GetMaterialApp {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: AppPages.HOME,
+      initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     );
   }

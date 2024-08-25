@@ -7,5 +7,7 @@ class IconThemes {
   static const String iconLinkiden = 'lib/assets/icons/linkiden.png';
   static const String iconLine = 'lib/assets/icons/line.png';
   static const String iconFrame = 'lib/assets/icons/frame.png';
+  static const String iconShield = 'lib/assets/icons/shield-fill-plus.svg';
 }
+
 

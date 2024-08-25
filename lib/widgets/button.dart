@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pandu_nyawa/themes/icon.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String text;
-  final String image;
+  final TextStyle style;
   final Color buttonColor;
   final Color iconColor;
   final VoidCallback onPressed;
@@ -12,7 +14,7 @@ class CustomElevatedButton extends StatelessWidget {
 
   CustomElevatedButton({
     required this.text,
-    required this.image,
+    required this.style,
     required this.buttonColor,
     required this.iconColor,
     required this.onPressed,
@@ -26,6 +28,17 @@ class CustomElevatedButton extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.25), // Adjust the color and opacity as needed
+            offset: Offset(0, 4.5), // x = 0, y = 4.5
+            blurRadius: 4.5, // Blur radius
+            spreadRadius: 0, // Spread radius
+          ),
+        ]
+      ),
       height: height,
       child: ElevatedButton(
         onPressed: onPressed,
@@ -42,13 +55,13 @@ class CustomElevatedButton extends StatelessWidget {
                 color: iconColor,
                 shape: BoxShape.circle,
               ),
-              child: Image.asset(image, scale: 1.5,),
-              padding: EdgeInsets.all(10),
+              child : Icon(Icons.health_and_safety,color: buttonColor,size: 30,),
+              padding: EdgeInsets.all(5),
             ),
             SizedBox(width: screenWidth * 0.03),
             Text(
               text,
-              style: GoogleFonts.lexend(fontSize: 13, color: Colors.black, fontWeight: FontWeight.w600),
+              style: style,
             ),
           ],
         ),
