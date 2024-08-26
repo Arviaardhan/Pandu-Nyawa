@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pandu_nyawa/screens/first_aid_page/view/first_aid_page.dart';
 import 'package:pandu_nyawa/screens/home_page/View/home_page.dart';
+import 'package:pandu_nyawa/screens/identify_page/view/identify_page.dart';
+import 'package:pandu_nyawa/themes/font_style.dart';
 
 import '../../../themes/icon.dart';
 import '../controller/navigator_controller.dart';
@@ -12,6 +14,7 @@ class BottomNavbar extends StatelessWidget {
   final List<Widget> pages = [
     HomePage(),
     FirstAidPage(),
+    IdentifyPage()
   ];
 
   BottomNavbar({super.key});
@@ -35,39 +38,60 @@ class BottomNavbar extends StatelessWidget {
               onTap: controller.changeIndex,
               backgroundColor: Colors.white,
               selectedItemColor: Colors.deepPurple,
-              unselectedItemColor: Colors.lightBlue,
+              unselectedItemColor: Colors.black,
               type: BottomNavigationBarType.fixed,
               showUnselectedLabels: true,
               items: [
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
+                  icon: Icon(Icons.home,color: Colors.black,),
                   label: '',
                 ),
                 BottomNavigationBarItem(
                   icon: Obx(() => controller.currentIndex.value == 1
-                      ? SvgPicture.asset(IconThemes.iconShield)
+                      ?
+                  Container(
+                    padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(200, 255, 240, 194),
+                          borderRadius: BorderRadius.all(Radius.circular(20))
+                        ),
+                        child: Row(children: [
+                          SvgPicture.asset(IconThemes.iconShield, color: Colors.orange),
+                                            SizedBox(width: 5,),
+                                            Text('First Aid',style: BottomNavbarSelectedTextStyle(1),)
+                                          ]),
+                      )
                       : SvgPicture.asset(
                     IconThemes.iconShield,
-                    color: Colors.orange,
                   )),
                   label: '',
                 ),
+
                 BottomNavigationBarItem(
                   icon: Obx(() => controller.currentIndex.value == 2
-                      ? Icon(Icons.search)
+                      ?
+                  Container(
+                    padding: EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(200, 187, 165, 247),
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Row(children: [
+                      Icon(Icons.search, color:Color(0xFF6750A4),),
+                      SizedBox(width: 5,),
+                      Text('Identify',style: BottomNavbarSelectedTextStyle(2),)
+                    ]),
+                  )
                       : Icon(
                     Icons.search,
-                    color: Colors.purple,
+                    color: Colors.black,
                   )),
                   label: '',
                 ),
                 BottomNavigationBarItem(
                   icon: Obx(() => controller.currentIndex.value == 3
-                      ? Icon(Icons.emergency)
-                      : Icon(
-                    Icons.emergency,
-                    color: Colors.green,
-                  )),
+                      ? Icon(Icons.monitor_heart_outlined)
+                      : Icon(Icons.monitor_heart_outlined)),
                   label: '',
                 ),
                 BottomNavigationBarItem(
