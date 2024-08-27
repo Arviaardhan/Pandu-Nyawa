@@ -210,6 +210,9 @@ class HomePage extends StatelessWidget {
                             height: screenHeight * 0.4,
                             viewportFraction: 0.6,
                             enlargeCenterPage: true,
+                            onPageChanged: (value, reason) {
+                              homeController.currentindex.value = value;
+                            },
                             // autoPlay: true,
                             // pauseAutoPlayOnManualNavigate:true,
                             // autoPlayInterval:   const Duration(seconds: 5),
@@ -235,7 +238,7 @@ class HomePage extends StatelessWidget {
                                   color: Color(0xFFF9AF2A),
                                 ),
                                 child: Center(
-                                  child: Text('Box 1',
+                                  child: Text('First Aid',
                                       style: GoogleFonts.lexend(
                                           fontSize: 16, color: Colors.white)),
                                 ),
@@ -247,7 +250,7 @@ class HomePage extends StatelessWidget {
                                 color: Color(0xFF6750A4),
                               ),
                               child: Center(
-                                child: Text('Box 2',
+                                child: Text('Identify',
                                     style: GoogleFonts.lexend(
                                         fontSize: 16, color: Colors.white)),
                               ),
@@ -258,7 +261,7 @@ class HomePage extends StatelessWidget {
                                 color: Color(0xFF649DF6),
                               ),
                               child: Center(
-                                child: Text('Box 3',
+                                child: Text('Simulation',
                                     style: GoogleFonts.lexend(
                                         fontSize: 16, color: Colors.white)),
                               ),
@@ -269,7 +272,7 @@ class HomePage extends StatelessWidget {
                                 color: Color(0xFFB3261E),
                               ),
                               child: Center(
-                                child: Text('Box 4',
+                                child: Text('Emergency',
                                     style: GoogleFonts.lexend(
                                         fontSize: 16, color: Colors.white)),
                               ),
