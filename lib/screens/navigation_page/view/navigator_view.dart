@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:pandu_nyawa/screens/emergency/view/emergency_page.dart';
 import 'package:pandu_nyawa/screens/first_aid_page/view/first_aid_page.dart';
 import 'package:pandu_nyawa/screens/home_page/View/home_page.dart';
 import 'package:pandu_nyawa/screens/identify_page/view/identify_page.dart';
+import 'package:pandu_nyawa/screens/simulation/view/simulation_page.dart';
 import 'package:pandu_nyawa/themes/font_style.dart';
 
 import '../../../themes/icon.dart';
@@ -14,7 +16,9 @@ class BottomNavbar extends StatelessWidget {
   final List<Widget> pages = [
     HomePage(),
     FirstAidPage(),
-    IdentifyPage()
+    IdentifyPage(),
+    SimulationPage(),
+    EmergencyPage()
   ];
 
   BottomNavbar({super.key});
@@ -90,16 +94,43 @@ class BottomNavbar extends StatelessWidget {
                 ),
                 BottomNavigationBarItem(
                   icon: Obx(() => controller.currentIndex.value == 3
-                      ? Icon(Icons.monitor_heart_outlined)
-                      : Icon(Icons.monitor_heart_outlined)),
+                      ?
+                  Container(
+                    padding: EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(200, 100, 152, 160),
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Row(children: [
+                      Icon(Icons.monitor_heart_outlined, color:Color.fromARGB(255,38,71,76),),
+                      SizedBox(width: 5,),
+                      Text('Simulation',style: BottomNavbarSelectedTextStyle(3),)
+                    ]),
+                  )
+                      : Icon(
+                    Icons.monitor_heart_outlined,
+                    color: Colors.black,
+                  )),
                   label: '',
                 ),
                 BottomNavigationBarItem(
                   icon: Obx(() => controller.currentIndex.value == 4
-                      ? Icon(Icons.warning_outlined)
+                      ?
+                  Container(
+                    padding: EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(200, 232, 106, 99),
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Row(children: [
+                      Icon(Icons.warning_outlined, color:Color(0xFFB3261E),),
+                      SizedBox(width: 5,),
+                      Text('Emergency',style: BottomNavbarSelectedTextStyle(4),)
+                    ]),
+                  )
                       : Icon(
                     Icons.warning_outlined,
-                    color: Colors.red,
+                    color: Colors.black,
                   )),
                   label: '',
                 ),
@@ -111,3 +142,4 @@ class BottomNavbar extends StatelessWidget {
     );
   }
 }
+
