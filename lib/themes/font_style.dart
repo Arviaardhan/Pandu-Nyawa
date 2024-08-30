@@ -7,7 +7,7 @@ Color getLabelColor(int index) {
   }else if (index == 2) {
     return Color(0xFF6750A4);
   }  else if (index == 3) {
-    return Color(0xFF649DF6);
+    return Color.fromARGB(255,38,71,76);
   } else if (index == 4) {
     return Color(0xFFB3261E);
   }else {
