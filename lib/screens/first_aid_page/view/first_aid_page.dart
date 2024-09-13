@@ -63,8 +63,8 @@ class FirstAidPage extends GetView<FirstAidController> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              controller.currentindex.value = 1;
-                              controller.mainTitle();
+                                controller.currentindex.value = 1;
+                                controller.mainTitle();
                             },
                             child: Image.asset(
                               'lib/assets/images/3.png',
@@ -167,44 +167,83 @@ class FirstAidPage extends GetView<FirstAidController> {
                   ),
                 ],
               ),
-              SizedBox(height: screenHeight * 0.016,),
-              Obx(
-                () => Visibility(
-                  visible: controller.currentindex.value != 0,
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.orange,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    padding: const EdgeInsets.all(10),
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          controller.title.value,
-                          style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
+              Obx(() => AnimatedSize(
+                  duration: Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                  child: Visibility(
+                    visible: controller.currentindex.value != 0,
+                    child: Container(
+                      constraints: BoxConstraints(
+                        maxWidth: controller.currentindex.value != 0 ? double.infinity : 0,
+                        maxHeight: controller.currentindex.value != 0 ? double.infinity : 0,
+                      ),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            controller.title.value,
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.justify,
                           ),
-                          textAlign: TextAlign.justify,
-                        ),
-                        Text(
-                          controller.desc.value,
-                          style: GoogleFonts.poppins(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
+                          Text(
+                            controller.desc.value,
+                            style: GoogleFonts.poppins(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.justify,
                           ),
-                          textAlign: TextAlign.justify,
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ),
+                ),),
+              // Obx(() {
+              //   return AnimatedSize( duration: const Duration(milliseconds: 300),
+              //     curve: Curves.easeInOut,
+              //     child: _value.value == 2
+              //         ? Container(
+              //         width: double.infinity,
+              //         padding: const EdgeInsets.all(10),
+              //         decoration: const BoxDecoration(
+              //             color: Colors.white,
+              //             border: Border( bottom: BorderSide(color: Colors.black),
+              //               left: BorderSide(color: Colors.black),
+              //               right: BorderSide(color: Colors.black),),
+              //             borderRadius: BorderRadius.only(bottomRight: Radius.circular(5),bottomLeft: Radius.circular(5))
+              //         ),
+              //         child:
+              //         Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: [
+              //             const Text(
+              //               'Pengembalian uang jika memakai tunai 100% tanpa biaya admin',
+              //               style: TextStyle(color: Colors.black, fontSize: 16),
+              //             ),
+              //             Text(
+              //                 '*Uang pengembalian ${currencyFormat.format(controller.calculatePriceCancel(order.paymentMethod ?? 'tunai', (order.orderMethod == 'delivery' ? totalprice += order.deliveryfee!.toInt() : totalprice) ))}',
+              //                 style: boldTextStyle
+              //             ),
+              //             const  SizedBox(height: 10,),
+              //           ],
+              //         )
+              //
+              //     )
+              //         : const SizedBox.shrink(), // Return an empty container if not selected
+              //   );
+              // }),
               SizedBox(height: screenHeight * 0.1,)
             ],
           ),

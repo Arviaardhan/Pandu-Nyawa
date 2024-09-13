@@ -228,9 +228,6 @@ class HomePage extends StatelessWidget {
                             InkWell(
                               onTap: () {
                                 controller.currentIndex.value = 1;
-                                print(controller.currentIndex.value);
-                                print(controller.currentIndex.value);
-                                print('object');
                               },
                               child: Container(
                                 decoration: BoxDecoration(
@@ -244,37 +241,52 @@ class HomePage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0xFF6750A4),
-                              ),
-                              child: Center(
-                                child: Text('Identify',
-                                    style: GoogleFonts.lexend(
-                                        fontSize: 16, color: Colors.white)),
-                              ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0xFF649DF6),
-                              ),
-                              child: Center(
-                                child: Text('Simulation',
-                                    style: GoogleFonts.lexend(
-                                        fontSize: 16, color: Colors.white)),
+                            InkWell(
+                              onTap: () {
+                                controller.currentIndex.value = 2;
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Color(0xFF6750A4),
+                                ),
+                                child: Center(
+                                  child: Text('Identify',
+                                      style: GoogleFonts.lexend(
+                                          fontSize: 16, color: Colors.white)),
+                                ),
                               ),
                             ),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0xFFB3261E),
+                            InkWell(
+                              onTap: () {
+                                controller.currentIndex.value = 3;
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Color(0xFF649DF6),
+                                ),
+                                child: Center(
+                                  child: Text('Simulation',
+                                      style: GoogleFonts.lexend(
+                                          fontSize: 16, color: Colors.white)),
+                                ),
                               ),
-                              child: Center(
-                                child: Text('Emergency',
-                                    style: GoogleFonts.lexend(
-                                        fontSize: 16, color: Colors.white)),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                controller.currentIndex.value = 4;
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Color(0xFFB3261E),
+                                ),
+                                child: Center(
+                                  child: Text('Emergency',
+                                      style: GoogleFonts.lexend(
+                                          fontSize: 16, color: Colors.white)),
+                                ),
                               ),
                             ),
                           ],
