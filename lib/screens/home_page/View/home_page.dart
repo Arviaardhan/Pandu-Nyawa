@@ -10,7 +10,7 @@ import '../../navigation_page/controller/navigator_controller.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
-  final NavigatorController controller = Get.put(NavigatorController());
+  final NavigatorController controller = Get.find<NavigatorController>();
   HomeController homeController = Get.find<HomeController>();
 
 
