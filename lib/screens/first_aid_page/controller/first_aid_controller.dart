@@ -10,34 +10,44 @@ class FirstAidController extends GetxController {
   void mainTitle() {
     switch (currentindex.value) {
       case 1:
-        title.value = "Anti Histamines";
+        title.value = "Alergi/Anafilaksis";
         desc.value =
-            "Adalah obat yang digunakan untuk menghambat efek histamin, yaitu zat kimia yang dilepaskan oleh tubuh sebagai respons terhadap alergen. Histamin dapat menyebabkan gejala alergi seperti bersin, gatal, hidung berair, dan mata gatal. Antihistamines membantu meredakan gejala-gejala ini dengan menghalangi histamin dari berinteraksi dengan reseptornya.";
+            "Debu, serbuk sari, makanan, maupun pemicu lainnya yang pada dasarnya tidak berbahaya dapat memunculkan beragam reaksi alergi. Ada penderita alergi yang mungkin hanya menunjukkan gejala ringan, tapi ada pula orang-orang yang mengalami reaksi parah sehingga memerlukan pertolongan pertama.\n \n Beberapa penderita alergi berisiko mengalami reaksi parah yang dikenal sebagai syok anafilaksis. Reaksi langka ini menyebabkan penyempitan saluran napas dan penurunan tekanan darah secara drastis yang akan bertambah parah bila tidak segera ditangani.";
         break;
       case 2:
-        title.value = "Inhaler";
+        title.value = "Serangan Asma";
         desc.value =
-            "Perangkat medis yang digunakan untuk menghirup obat-obatan melalui mulut atau hidung. Obat-obatan dalam inhaler biasanya berupa aerosol atau bubuk kering yang dapat langsung masuk ke saluran pernapasan. Inhaler sering digunakan untuk mengobati kondisi seperti asma, bronkitis kronis, dan alergi.";
+            "Asma bisa membuat penderitanya sulit bernapas. Saat serangan asma datang, saluran napas akan membengkak, menyempit, dan menghasilkan banyak lendir. Kondisi ini bisa terjadi pada siapa saja, tidak peduli berapa usia dan apa jenis kelaminnya. Mulai dari bayi hingga orang dewasa, baik wanita maupun pria. \n \n Faktor pemicu terjadinya serangan asma berbeda pada setiap orang. Hal-hal yang dapat memicu munculnya gejala asma dapat berupa debu, asap rokok, bulu hewan, kelelahan, stres, atau efek samping obat.Walaupun tidak dapat disembuhkan, kemunculan gejala penyakit asma setidaknya bisa diantisipasi dan dicegah. Dengan pengobatan yang tepat, gejala asma dapat dikendalikan sehingga tidak mengganggu kehidupan penderitanya.";
         break;
       case 3:
-        title.value = "Perban";
+        title.value = "Perdarahan";
         desc.value =
-            "Bahan yang digunakan untuk membalut atau membungkus luka atau cedera pada tubuh. Perban biasanya terbuat dari kain, katun, atau bahan elastis lainnya yang dapat menempel pada kulit dengan mudah dan memberikan perlindungan terhadap luka. Fungsi utama perban adalah untuk melindungi luka dari kotoran dan infeksi, membantu menghentikan pendarahan, dan mendukung proses penyembuhan. Perban sering digunakan dalam pertolongan pertama dan dalam perawatan medis untuk cedera ringan hingga sedang.";
+            "Perdarahan adalah peristiwa keluarnya darah sebagai akibat pembuluh darah yang mengalami kerusakan. Hal ini dapat terjadi di bagian luar maupun dalam tubuh, dan biasanya disebabkan oleh cedera (tertusuk, tersayat, tergores, dan terbentur) dan penyakit bawaan yang berkaitanApabila tidak menerima perawatan, korban akan terus kehilangan darah dari pembuluh darah yang pecah hingga mengalami perdarahan akut (Hemorrhagia) yang bersifat fatal.Dengan perawatan yang tepat, biasanya perdarahan pada korban akan berhenti dengan sendirinya kecuali korban mengidap Hemofilia (Kelainan pada keping darah) yang mencegah darah untuk membeku.";
         break;
       case 4:
-        title.value = "Penopang Kaki";
+        title.value = "Patah Tulang";
         desc.value =
-            "Alat bantu yang digunakan untuk menopang dan melindungi kaki setelah mengalami retak atau patah tulang. Alat ini berfungsi untuk mencegah pergerakan tulang yang cedera, mengurangi beban pada kaki, dan menjaga posisi tulang agar dapat menyatu dengan sempurna. Jenis-jenis penopang kaki antara lain gips, ortosis, walker, dan kruk. Pemilihan jenis penopang kaki akan disesuaikan dengan jenis dan tingkat keparahan cedera.";
+            "Fraktur Patah tulang atau fraktur adalah kondisi ketika keutuhan susunan tulang di dalam tubuh terputus (patah). Kondisi ini bisa terjadi di bagian tulang mana saja, namun lebih sering terjadi pada tulang tangan, pinggul, selangka, lengan atas, dan kaki.Tidak hanya itu, fraktur juga dapat dipicu oleh kondisi tulang yang lemah, sehingga membuat tulang menjadi mudah patah. Adapun penyakit atau gangguan muskuloskeletal yang dapat menyebabkan tulang menjadi lemah adalah tumor tulang, osteogenesis imperfekta, infeksi tulang, atau osteoporosis.";
         break;
       case 5:
-        title.value = "Salep Luka Bakar";
+        title.value = "Luka Bakar";
         desc.value =
-            "Membantu mempercepat proses penyembuhan luka bakar dan mengurangi risiko komplikasi seperti infeksi. Namun, penting untuk menggunakan salep sesuai dengan petunjuk dokter atau farmasis, dan segera mencari bantuan medis jika luka bakar parah.";
+            "Luka bakar merupakan kondisi ketika adanya kerusakan kulit yang disebabkan oleh panas, bahan kimia, listrik, radiasi, atau matahari. Dokter biasanya menentukan keseriusan (derajat) luka berdasarkan kedalaman luka dan jumlah kulit yang terkena. Kondisi ini bisa menyakitkan dan menyebabkan infeksi jika tidak diobati. Kondisi luka tingkat pertama, dan sebagian besar luka bakar tingkat dua, sembuh dengan perawatan di rumah. Sementara itu luka tingkat tiga dapat mengancam jiwa dan memerlukan perawatan medis khusus.";
         break;
       case 6:
-        title.value = "Tablet Glucose";
+        title.value = "Keadaan Darurat Diabetes";
         desc.value =
-            "Suplemen makanan yang mengandung glukosa, yaitu gula sederhana yang merupakan sumber energi utama bagi tubuh. Tablet glukosa sering digunakan sebagai pengobatan darurat untuk hipoglikemia, yaitu kondisi ketika kadar gula darah terlalu rendah.";
+            "Keadaan darurat diabetes adalah kondisi kesehatan serius yang dapat terjadi pada penderita diabetes. Kondisi ini terjadi karena fluktuasi kadar gula darah, baik yang terlalu tinggi (hiperglikemia) maupun yang terlalu rendah (hipoglikemia).";
+        break;
+      case 7:
+        title.value = "Tersedak";
+        desc.value =
+        "Tersedak atau choking adalah kondisi ketika saluran napas tersumbat oleh benda asing, seperti makanan, air, atau benda lainnya.  Sumbatan ini bisa terjadi secara total atau parsial, dan dapat menyebabkan kesulitan bernapas.";
+        break;
+      case 8:
+        title.value = "Distress";
+        desc.value =
+        "Distreess adalah suatu keadaan penderitaan mental yang dapat melibatkan berbagai gejala. Tekanan emosional dapat diakibatkan oleh masalah kesehatan mental atau keadaan tertentu, seperti kesulitan dalam hubungan atau tekanan keuangan.";
         break;
       default:
         title.value = "Mewing";

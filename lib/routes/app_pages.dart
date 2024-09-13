@@ -6,6 +6,7 @@ import 'package:pandu_nyawa/screens/home_page/Binding/home_binding.dart';
 import 'package:pandu_nyawa/screens/navigation_page/view/navigator_view.dart';
 
 import '../screens/first_aid_page/binding/first_aid_binding.dart';
+import '../screens/navigation_page/bindings/navigator_binding.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -16,6 +17,7 @@ class AppPages {
         name: Path.BOTTOMNAVBAR,
         page: () => BottomNavbar(),
         bindings: [
+          NavigatorBinding(),
           HomeBinding(),
           FirstAidBinding()
         ],

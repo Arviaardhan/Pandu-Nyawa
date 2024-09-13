@@ -96,14 +96,14 @@ class BottomNavbar extends StatelessWidget {
                   icon: Obx(() => controller.currentIndex.value == 3
                       ?
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: EdgeInsets.symmetric(horizontal: 1,vertical: 3),
                     decoration: BoxDecoration(
                         color: Color.fromARGB(200, 100, 152, 160),
                         borderRadius: BorderRadius.all(Radius.circular(20))
                     ),
                     child: Row(children: [
                       Icon(Icons.monitor_heart_outlined, color:Color.fromARGB(255,38,71,76),),
-                      SizedBox(width: 5,),
+                      SizedBox(width: 2,),
                       Text('Simulation',style: BottomNavbarSelectedTextStyle(3),)
                     ]),
                   )

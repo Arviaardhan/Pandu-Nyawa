@@ -38,144 +38,175 @@ class FirstAidPage extends GetView<FirstAidController> {
         ),
         backgroundColor: const Color(0xFFFFF5D7),
         body: SingleChildScrollView(
-          padding: const EdgeInsets.all(15),
-          child: Center(
-            child: Column(
-              children: [
-                Text(
-                  "First Aid Kit",
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: Column(
+            children: [
+              const SizedBox(height: 20,),
+              Text(
+                "First Aid Kit",
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                ),
+              ),
+              Stack(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top:screenHeight * 0.08,),
+                    child: Image.asset('lib/assets/images/rak_first_aid.png',),
                   ),
-                ),
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset('lib/assets/images/rak_image.png'),
-                    Column(
-                      children: [
-                        const SizedBox(height: 40),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                controller.currentindex.value = 1;
-                                controller.mainTitle();
-                              },
-                              child: Image.asset(
-                                'lib/assets/images/3.png',
-                                height: 80,
-                                width: 80,
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                controller.currentindex.value = 2;
-                                controller.mainTitle();
-                              },
-                              child: Image.asset(
-                                'lib/assets/images/4.png',
-                                height: 100,
-                                width: 100,
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                controller.currentindex.value = 3;
-                                controller.mainTitle();
-                              },
-                              child: Image.asset(
-                                'lib/assets/images/5.png',
-                                height: 100,
-                                width: 100,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                controller.currentindex.value = 4;
-                                controller.mainTitle();
-                              },
-                              child: Image.asset(
-                                'lib/assets/images/6.png',
-                                height: 80,
-                                width: 80,
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                controller.currentindex.value = 5;
-                                controller.mainTitle();
-                              },
-                              child: Image.asset(
-                                'lib/assets/images/7.png',
-                                height: 100,
-                                width: 100,
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                controller.currentindex.value = 6;
-                                controller.mainTitle();
-                              },
-                              child: Image.asset(
-                                'lib/assets/images/9.png',
-                                height: 100,
-                                width: 100,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Obx(
-                  () => Visibility(
-                    visible: controller.currentindex.value != 0,
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.orange,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                  Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text(
-                            controller.title.value,
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                          GestureDetector(
+                            onTap: () {
+                              controller.currentindex.value = 1;
+                              controller.mainTitle();
+                            },
+                            child: Image.asset(
+                              'lib/assets/images/3.png',
+                              height: 80,
+                              width: 80,
                             ),
-                            textAlign: TextAlign.justify,
                           ),
-                          Text(
-                            controller.desc.value,
-                            style: GoogleFonts.poppins(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
+                          GestureDetector(
+                            onTap: () {
+                              controller.currentindex.value = 2;
+                              controller.mainTitle();
+                            },
+                            child: Image.asset(
+                              'lib/assets/images/4.png',
+                              height: 100,
+                              width: 100,
                             ),
-                            textAlign: TextAlign.justify,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              controller.currentindex.value = 3;
+                              controller.mainTitle();
+                            },
+                            child: Image.asset(
+                              'lib/assets/images/5.png',
+                              height: 100,
+                              width: 100,
+                            ),
                           ),
                         ],
                       ),
+                      SizedBox(height: screenHeight * 0.04,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              controller.currentindex.value = 4;
+                              controller.mainTitle();
+                            },
+                            child: Image.asset(
+                              'lib/assets/images/6.png',
+                              height: 80,
+                              width: 80,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              controller.currentindex.value = 5;
+                              controller.mainTitle();
+                            },
+                            child: Image.asset(
+                              'lib/assets/images/7.png',
+                              height: 100,
+                              width: 100,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              controller.currentindex.value = 6;
+                              controller.mainTitle();
+                            },
+                            child: Image.asset(
+                              'lib/assets/images/9.png',
+                              height: 100,
+                              width: 100,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: screenHeight * 0.05,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              controller.currentindex.value = 7;
+                              controller.mainTitle();
+                            },
+                            child: Image.asset(
+                              'lib/assets/images/8.png',
+                              height: 93,
+                              width: 100,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              controller.currentindex.value = 8;
+                              controller.mainTitle();
+                            },
+                            child: Image.asset(
+                              'lib/assets/images/10.png',
+                              height: 80,
+                              width: 100,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: screenHeight * 0.016,),
+              Obx(
+                () => Visibility(
+                  visible: controller.currentindex.value != 0,
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          controller.title.value,
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.justify,
+                        ),
+                        Text(
+                          controller.desc.value,
+                          style: GoogleFonts.poppins(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.justify,
+                        ),
+                      ],
                     ),
                   ),
-                )
-              ],
-            ),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.1,)
+            ],
           ),
         ));
   }

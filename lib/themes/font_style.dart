@@ -14,6 +14,19 @@ Color getLabelColor(int index) {
     return Colors.black; // Default to red for other statuses
   }
 }
+Color buttonNavbar(int index) {
+  if (index == 1) {
+    return Color.fromARGB(255, 255, 240, 194);
+  }else if (index == 2) {
+    return Color.fromARGB(255, 187, 165, 247);
+  }  else if (index == 3) {
+    return Color.fromARGB(255, 100, 152, 160);
+  } else if (index == 4) {
+    return Color.fromARGB(255, 232, 106, 99);
+  }else {
+    return Colors.black; // Default to red for other statuses
+  }
+}
 TextStyle BottomNavbarSelectedTextStyle(int index) {
   return GoogleFonts.poppins(
   color: getLabelColor(index),
