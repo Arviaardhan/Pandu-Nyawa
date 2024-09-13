@@ -13,7 +13,6 @@ class NavigatorController extends GetxController {
     super.onInit();
   }
   void changeIndex(int index) async {
-    // historyController.fetchHistory();
     currentIndex.value = index;
   }
 }
