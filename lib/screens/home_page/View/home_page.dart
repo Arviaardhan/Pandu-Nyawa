@@ -234,11 +234,11 @@ class HomePage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   color: Color(0xFFF9AF2A),
                                 ),
-                                child: Center(
-                                  child: Text('First Aid',
-                                      style: GoogleFonts.lexend(
-                                          fontSize: 16, color: Colors.white)),
-                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.asset( 'lib/assets/images/FirstAid.png',
+                                    fit: BoxFit.cover,),
+                                )
                               ),
                             ),
                             InkWell(
@@ -266,11 +266,11 @@ class HomePage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   color: Color(0xFF649DF6),
                                 ),
-                                child: Center(
-                                  child: Text('Simulation',
-                                      style: GoogleFonts.lexend(
-                                          fontSize: 16, color: Colors.white)),
-                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.asset( 'lib/assets/images/Simulation.PNG',
+                                    fit: BoxFit.cover,),
+                                )
                               ),
                             ),
                             InkWell(
@@ -282,11 +282,11 @@ class HomePage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   color: Color(0xFFB3261E),
                                 ),
-                                child: Center(
-                                  child: Text('Emergency',
-                                      style: GoogleFonts.lexend(
-                                          fontSize: 16, color: Colors.white)),
-                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.asset( 'lib/assets/images/Emergency.PNG',
+                                    fit: BoxFit.cover,),
+                                )
                               ),
                             ),
                           ],
