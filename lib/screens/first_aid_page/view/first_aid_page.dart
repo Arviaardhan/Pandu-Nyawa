@@ -79,7 +79,7 @@ class FirstAidPage extends GetView<FirstAidController> {
                               controller.mainTitle();
                             },
                             child: Image.asset(
-                              'lib/assets/images/inhaler.PNG',
+                              'lib/assets/images/Inhaler.PNG',
                               fit: BoxFit.cover,
                               height: 100,
                               width: 100,
