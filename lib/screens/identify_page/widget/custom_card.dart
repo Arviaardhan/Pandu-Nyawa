@@ -19,7 +19,7 @@ class CustomCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Get.to(() => DetailIdentifyPage(lukaModel: lukaModel), binding: DetailIdentifyBinding());
+        Get.to(() => DetailIdentifyPage(lukaModel: lukaModel, quizType: 'Tipe Quiz',), binding: DetailIdentifyBinding());
       },
       child: Container(
         width: screenWidth * 0.3,
