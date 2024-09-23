@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pandu_nyawa/screens/first_aid_page/controller/first_aid_controller.dart';
 
+import '../../../widgets/drawer.dart';
+
 class FirstAidPage extends GetView<FirstAidController> {
   const FirstAidPage({Key? key}) : super(key: key);
 
@@ -16,26 +18,7 @@ class FirstAidPage extends GetView<FirstAidController> {
           preferredSize: Size.fromHeight(screenHeight * 0.08),
           child: _buildAppbar(screenHeight, screenWidth),
         ),
-        endDrawer: Drawer(
-          child: ListView(
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text('Menu'),
-              ),
-              ListTile(
-                title: const Text('Item 1'),
-                onTap: () {},
-              ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {},
-              ),
-            ],
-          ),
-        ),
+        endDrawer: DrawerCustom(),
         backgroundColor: const Color(0xFFFFF5D7),
         body: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),

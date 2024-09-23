@@ -6,6 +6,7 @@ import 'package:pandu_nyawa/screens/home_page/component/footer.dart';
 import 'package:pandu_nyawa/widgets/button.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../../../widgets/drawer.dart';
 import '../../navigation_page/controller/navigator_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -53,26 +54,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      endDrawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Menu'),
-            ),
-            ListTile(
-              title: Text('Item 1'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Item 2'),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
+      endDrawer:DrawerCustom(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(top: screenHeight * 0.05,),
@@ -294,7 +276,7 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Footer()
+                const Footer(colors: Colors.white, isImageRequired: true,)
               ],
             ),
           ),
