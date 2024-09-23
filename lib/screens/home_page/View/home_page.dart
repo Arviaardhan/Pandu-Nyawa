@@ -246,15 +246,15 @@ class HomePage extends StatelessWidget {
                                 controller.currentIndex.value = 2;
                               },
                               child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Color(0xFF6750A4),
-                                ),
-                                child: Center(
-                                  child: Text('Identify',
-                                      style: GoogleFonts.lexend(
-                                          fontSize: 16, color: Colors.white)),
-                                ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Color(0xFF649DF6),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.asset( 'lib/assets/images/identify.PNG',
+                                      fit: BoxFit.cover,),
+                                  )
                               ),
                             ),
                             InkWell(

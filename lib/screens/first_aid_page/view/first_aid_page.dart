@@ -66,11 +66,14 @@ class FirstAidPage extends GetView<FirstAidController> {
                                 controller.currentindex.value = 1;
                                 controller.mainTitle();
                             },
-                            child: Image.asset(
-                              'lib/assets/images/3.png',
-                              fit: BoxFit.cover,
-                              height: 80,
-                              width: 80,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 40),
+                              child: Image.asset(
+                                'lib/assets/images/anti2.png',
+                                height: 60,
+                                width:110,
+                                fit: BoxFit.fitWidth,
+                              ),
                             ),
                           ),
                           GestureDetector(
@@ -91,7 +94,7 @@ class FirstAidPage extends GetView<FirstAidController> {
                               controller.mainTitle();
                             },
                             child: Image.asset(
-                              'lib/assets/images/5.png',
+                              'lib/assets/images/bandage.PNG',
                               fit: BoxFit.cover,
                               height: 100,
                               width: 100,
@@ -109,10 +112,10 @@ class FirstAidPage extends GetView<FirstAidController> {
                               controller.mainTitle();
                             },
                             child: Image.asset(
-                              'lib/assets/images/6.png',
+                              'lib/assets/images/kaki.png',
                               fit: BoxFit.cover,
-                              height: 80,
-                              width: 80,
+                              height: 110,
+                              width: 110,
                             ),
                           ),
                           GestureDetector(
@@ -122,7 +125,6 @@ class FirstAidPage extends GetView<FirstAidController> {
                             },
                             child: Image.asset(
                               'lib/assets/images/salep.PNG',
-                              fit: BoxFit.cover,
                               height: 100,
                               width: 100,
                             ),
@@ -133,10 +135,10 @@ class FirstAidPage extends GetView<FirstAidController> {
                               controller.mainTitle();
                             },
                             child: Image.asset(
-                              'lib/assets/images/9.png',
+                              'lib/assets/images/glukosw.png',
                               fit: BoxFit.cover,
-                              height: 100,
-                              width: 100,
+                              height: 110,
+                              width: 110,
                             ),
                           ),
                         ],
@@ -151,9 +153,9 @@ class FirstAidPage extends GetView<FirstAidController> {
                               controller.mainTitle();
                             },
                             child: Image.asset(
-                              'lib/assets/images/8.png',
+                              'lib/assets/images/choking.PNG',
                               fit: BoxFit.cover,
-                              height: 93,
+                              height: 70,
                               width: 100,
                             ),
                           ),
@@ -164,7 +166,6 @@ class FirstAidPage extends GetView<FirstAidController> {
                             },
                             child: Image.asset(
                               'lib/assets/images/distress.PNG',
-                              fit: BoxFit.cover,
                               height: 80,
                               width: 100,
                             ),
