@@ -34,3 +34,17 @@ TextStyle BottomNavbarSelectedTextStyle(int index) {
   fontSize: 10,
 );
 }
+
+TextStyle txtMenuHeading = GoogleFonts.lexend(
+    textStyle: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: (16))
+);
+
+TextStyle txtMenuRegular = GoogleFonts.lexend(
+    textStyle: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: (12))
+);

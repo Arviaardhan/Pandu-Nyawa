@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../widget/list_icon.dart';
 class Footer extends StatelessWidget {
-  const Footer({Key? key}) : super(key: key);
+  final Color colors;
+  final bool isImageRequired;
+  const Footer({Key? key, required this.colors, required this.isImageRequired}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class Footer extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: colors,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
       ),
       height: screenHeight * 0.3,width: double.infinity,child:
@@ -23,9 +25,12 @@ class Footer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              'lib/assets/images/logo-pandu-nyawa.png',
-              height: screenHeight * 0.075,
+            Visibility(
+              visible: isImageRequired,
+              child: Image.asset(
+                'lib/assets/images/logo_menu.png',
+                height: screenHeight * 0.075,
+              ),
             ),
             SizedBox(
               width: 10,

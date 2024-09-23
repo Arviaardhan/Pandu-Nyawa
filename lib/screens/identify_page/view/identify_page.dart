@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pandu_nyawa/screens/navigation_page/view/navigator_view.dart';
 
 import '../../../data/models/identify_model/identify_model.dart';
+import '../../../widgets/drawer.dart';
 import '../widget/custom_card.dart';
 class IdentifyPage extends StatelessWidget {
   const IdentifyPage({Key? key}) : super(key: key);
@@ -44,26 +45,7 @@ class IdentifyPage extends StatelessWidget {
           ),
         ),
       ),
-      endDrawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Menu'),
-            ),
-            ListTile(
-              title: Text('Item 1'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Item 2'),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
+      endDrawer: DrawerCustom(),
       body: Padding(
         padding: EdgeInsets.only(top: screenHeight * 0.03),
         child: Center(
