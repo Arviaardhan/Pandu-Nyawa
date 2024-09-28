@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pandu_nyawa/data/models/identify_model/identify_model.dart';
-import 'package:pandu_nyawa/data/models/identify_quiz_model/identify_quiz_model.dart';
-import 'package:pandu_nyawa/screens/identify_page/detail_page/binding/detail_binding.dart';
+import 'package:pandu_nyawa/screens/emergency/view/emergency_page.dart';
 import 'package:pandu_nyawa/screens/identify_page/detail_page/controller/detail_controller.dart';
 import 'package:pandu_nyawa/screens/identify_page/quiz_page/view/quiz_view.dart';
 
+// Assuming LukaModel has a quizzes property and detailIdentifyController has a currentQuizIndex property
 class DetailIdentifyPage extends StatelessWidget {
   final LukaModel lukaModel;
   final String quizType;
@@ -233,9 +233,27 @@ class DetailIdentifyPage extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
+                                if (lukaModel.quizzes.isNotEmpty) // Ensure there's at least one quiz
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Get.to(() => QuizIdentifyPage(
+                                        quizzes: lukaModel.quizzes, // Pass the list of quizzes
+                                      ));
+                                    },
+                                    style: OutlinedButton.styleFrom(
+                                      side: BorderSide(color: Colors.black, width: 1.0),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10.0),
+                                      ),
+                                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                                      backgroundColor: Color(0xFFFFF5D7),
+                                    ),
+                                    child: Text('Test Simulasi', style: TextStyle(color: Colors.black)),
+                                  ),
+                                // Add the Emergency button here
                                 ElevatedButton(
                                   onPressed: () {
-                                    Get.to(() => QuizIdentifyPage(), arguments: quiz1);
+                                    Get.to(EmergencyPage());
                                   },
                                   style: OutlinedButton.styleFrom(
                                     side: BorderSide(color: Colors.black, width: 1.0),
@@ -243,23 +261,9 @@ class DetailIdentifyPage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(10.0),
                                     ),
                                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                                    backgroundColor: Color(0xFFFFF5D7), // Background color to match the container
+                                    backgroundColor: Color(0xFFFFF5D7),
                                   ),
-                                  child: Text('Test Simulasi', style: TextStyle(color: Colors.black),),
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {
-                                    // Handle simulation button pressed
-                                  },
-                                  style: OutlinedButton.styleFrom(
-                                    side: BorderSide(color: Colors.black, width: 1.0),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                    ),
-                                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                                    backgroundColor: Color(0xFFFFF5D7), // Background color to match the container
-                                  ),
-                                  child: Text('Emergency', style: TextStyle(color: Colors.black),),
+                                  child: Text('Emergency', style: TextStyle(color: Colors.black)),
                                 ),
                               ],
                             ),

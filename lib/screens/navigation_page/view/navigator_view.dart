@@ -9,23 +9,37 @@ import 'package:pandu_nyawa/screens/identify_page/view/identify_page.dart';
 import 'package:pandu_nyawa/screens/simulation/view/simulation_page.dart';
 import 'package:pandu_nyawa/themes/font_style.dart';
 
+import '../../../data/models/identify_model/identify_model.dart';
 import '../../../themes/icon.dart';
 import '../controller/navigator_controller.dart';
 
 class BottomNavbar extends StatelessWidget {
   final NavigatorController controller = Get.find<NavigatorController>();
-  final List<Widget> pages = [
-    HomePage(),
-    FirstAidPage(),
-    IdentifyPage(),
-    SimulationPage(),
-    EmergencyPage()
+  final List<LukaModel> lukaModels = [
+    syokAnafilaksis,
+    epinefrin,
+    resutasiJantungParu,
+    mengalamiAsma,
+    orangLainMengalamiAsma,
+    perdarahanLuarBerat,
+    perdarahanLuarRingan,
+    perdarahanDalam,
+    pertolonganPatahTulang,
+    diabetes,
   ];
 
   BottomNavbar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      HomePage(),
+      FirstAidPage(),
+      IdentifyPage(lukaModels: lukaModels ?? []),
+      SimulationPage(),
+      EmergencyPage()
+    ];
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBody: true,
