@@ -20,6 +20,7 @@ class EmergencyPage extends GetView<EmergencyController> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenHeight * 0.08),
         child: AppBar(
+          automaticallyImplyLeading: false,
           centerTitle: true,
           backgroundColor: Colors.white,
           surfaceTintColor: Colors.white,

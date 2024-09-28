@@ -1,154 +1,136 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../data/models/identify_quiz_model/identify_quiz_model.dart';
+import '../controller/quiz_controller.dart';
 
 class QuizIdentifyPage extends StatelessWidget {
-  const QuizIdentifyPage({Key? key}) : super(key: key);
+  final List<QuizModel> quizzes;
+
+  const QuizIdentifyPage({
+    Key? key,
+    required this.quizzes,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Retrieving the QuizModel passed through navigation
-    final QuizModel quiz = Get.arguments;
-
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
+    final QuizIdentifyController controller = Get.put(QuizIdentifyController());
 
     return Scaffold(
       backgroundColor: Color(0xFFFFF5D7),
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(screenHeight * 0.08),
-        child: AppBar(
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          surfaceTintColor: Colors.white,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        title: Text('Quiz'),
+      ),
+      body: Obx(() {
+        final quizModel = quizzes[controller.currentIndex.value]; // Get current quiz
+
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.05),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                'lib/assets/images/logo-pandu-nyawa.png', // Your logo here
-                height: screenHeight * 0.075,
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              Text(
+                'Test Simulasi',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        vertical: 6, horizontal: screenWidth * 0.05),
-                    decoration: BoxDecoration(
-                        color: Color(0xFFE8B931),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Icon(Icons.person),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+              Text(
+                quizModel.question,
+                style: TextStyle(fontSize: 18),
+                textAlign: TextAlign.start,
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+              Column(
+                children: quizModel.options.asMap().entries.map((entry) {
+                  int index = entry.key;
+                  String option = entry.value;
+
+                  Color containerColor;
+                  Widget icon;
+                  if (controller.selectedAnswerIndex.value == index) {
+                    if (index == quizModel.correctAnswer) {
+                      containerColor = Colors.green;
+                      icon = Icon(Icons.check, color: Colors.white);
+                    } else {
+                      containerColor = Colors.red;
+                      icon = Icon(Icons.close, color: Colors.white);
+                    }
+                  } else {
+                    containerColor = Colors.white; // Default color if not selected
+                    icon = SizedBox.shrink(); // No icon if not selected
+                  }
+
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        controller.selectAnswer(index, quizModel);
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        decoration: BoxDecoration(
+                          color: containerColor,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey.shade400),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: MediaQuery.of(context).size.height * 0.01),
+                              child: Text(
+                                option,
+                                style: TextStyle(
+                                  color: controller.selectedAnswerIndex.value == index
+                                      ? Colors.white
+                                      : Colors.black,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                            controller.selectedAnswerIndex.value == index ? icon : SizedBox.shrink(),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+              SizedBox(height: 15),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: IconButton(
+                    icon: Icon(Icons.arrow_forward),
+                    onPressed: () {
+                      if (controller.answerSelected.value) { // Only allow navigation if an answer is selected
+                        controller.navigateToNextQuiz(quizzes);
+                      } else {
+                        // Optionally, show a message if no answer is selected
+                        Get.snackbar("Peringatan", "Silakan pilih jawaban terlebih dahulu.");
+                      }
+                    },
                   ),
                 ),
               ),
             ],
           ),
-        ),
-      ),
-      endDrawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Menu'),
-            ),
-            ListTile(
-              title: Text('Item 1'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Item 2'),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: screenHeight * 0.03),
-            Text(
-              'Test Simulasi',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: screenHeight * 0.02),
-            Text(
-              quiz.question,
-              style: TextStyle(fontSize: 18),
-              textAlign: TextAlign.start,
-            ),
-            SizedBox(height: screenHeight * 0.03),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: screenWidth * 0.45,
-                  height: screenHeight * 0.3,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                  ),
-                  child: Image.asset(quiz.imagePath, height: 50, width: 50,),
-                ),
-                SizedBox(width: screenWidth * 0.05),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: quiz.options.map((option) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5.0),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            side: BorderSide(color: Colors.grey.shade400),
-                            padding: EdgeInsets.symmetric(
-                              vertical: 10,
-                              horizontal: screenWidth * 0.05,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          onPressed: () {
-                            // Logic for checking the answer
-                            if (option == quiz.correctAnswer) {
-                              Get.snackbar('Correct!', 'You selected the right answer.',
-                                  backgroundColor: Colors.green, colorText: Colors.white);
-                            } else {
-                              Get.snackbar('Incorrect', 'Try again!',
-                                  backgroundColor: Colors.red, colorText: Colors.white);
-                            }
-                          },
-                          child: Text(
-                            option,
-                            style: TextStyle(color: Colors.black, fontSize: 16),
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                ),
-              ],
-            ),
-            // Navigation Button (Next or Back)
-            Align(
-              alignment: Alignment.bottomRight,
-              child: IconButton(
-                icon: Icon(Icons.arrow_forward),
-                onPressed: () {
-                  // Add your next page navigation logic here
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
+        );
+      }),
     );
   }
 }
