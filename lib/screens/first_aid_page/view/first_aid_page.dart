@@ -50,11 +50,12 @@ class FirstAidPage extends GetView<FirstAidController> {
                                 controller.mainTitle();
                             },
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 40),
+                              // padding: EdgeInsets.only(top: 40),
+                              padding: EdgeInsets.only(top: screenHeight * 0.048),
                               child: Image.asset(
                                 'lib/assets/images/anti2.png',
-                                height: 60,
-                                width:110,
+                                height: screenHeight * 0.07, //60
+                                width: screenWidth * 0.25, //100
                                 fit: BoxFit.fitWidth,
                               ),
                             ),
@@ -67,8 +68,8 @@ class FirstAidPage extends GetView<FirstAidController> {
                             child: Image.asset(
                               'lib/assets/images/Inhaler.PNG',
                               fit: BoxFit.cover,
-                              height: 100,
-                              width: 100,
+                              height: screenHeight * 0.100,
+                              width: screenWidth * 0.25,
                             ),
                           ),
                           GestureDetector(
@@ -79,8 +80,8 @@ class FirstAidPage extends GetView<FirstAidController> {
                             child: Image.asset(
                               'lib/assets/images/bandage.PNG',
                               fit: BoxFit.cover,
-                              height: 100,
-                              width: 100,
+                              height: screenHeight * 0.100,
+                              width: screenWidth * 0.26,
                             ),
                           ),
                         ],
@@ -97,8 +98,8 @@ class FirstAidPage extends GetView<FirstAidController> {
                             child: Image.asset(
                               'lib/assets/images/kaki.png',
                               fit: BoxFit.cover,
-                              height: 110,
-                              width: 110,
+                              height: screenHeight * 0.130,
+                              width: screenWidth * 0.28, //110
                             ),
                           ),
                           GestureDetector(
@@ -108,8 +109,8 @@ class FirstAidPage extends GetView<FirstAidController> {
                             },
                             child: Image.asset(
                               'lib/assets/images/salep.PNG',
-                              height: 100,
-                              width: 100,
+                              height: screenHeight * 0.130,
+                              width: screenWidth * 0.26,
                             ),
                           ),
                           GestureDetector(
@@ -120,8 +121,8 @@ class FirstAidPage extends GetView<FirstAidController> {
                             child: Image.asset(
                               'lib/assets/images/glukosw.png',
                               fit: BoxFit.cover,
-                              height: 110,
-                              width: 110,
+                              height: screenHeight * 0.120,
+                              width: screenWidth * 0.28,
                             ),
                           ),
                         ],
@@ -138,8 +139,8 @@ class FirstAidPage extends GetView<FirstAidController> {
                             child: Image.asset(
                               'lib/assets/images/choking.PNG',
                               fit: BoxFit.cover,
-                              height: 70,
-                              width: 100,
+                              height: screenHeight * 0.1,
+                              width: screenWidth * 0.26,
                             ),
                           ),
                           GestureDetector(
@@ -149,8 +150,8 @@ class FirstAidPage extends GetView<FirstAidController> {
                             },
                             child: Image.asset(
                               'lib/assets/images/distress.PNG',
-                              height: 80,
-                              width: 100,
+                              height: screenHeight * 0.1,
+                              width: screenWidth * 0.26,
                             ),
                           ),
                         ],
