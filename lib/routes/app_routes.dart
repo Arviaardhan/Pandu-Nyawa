@@ -3,6 +3,7 @@ abstract class Route {
   static const HOMEVIEW_PAGE = '/homeview';
   static const FIRSTAID_PAGE = '/firstaidview';
   static const BOTTOMNAVBAR = '/bottomnavbar';
+  static const EMERGENCY_PAGE = '/emergencyview';
 }
 
 abstract class Path {
@@ -10,5 +11,6 @@ abstract class Path {
   static const HOMEVIEW_PAGE = '/homeview';
   static const FIRSTAID_PAGE = '/firstaidview';
   static const BOTTOMNAVBAR = '/bottomnavbar';
+  static const EMERGENCY_PAGE = '/emergencyview';
 }
 

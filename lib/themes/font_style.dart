@@ -48,3 +48,42 @@ TextStyle txtMenuRegular = GoogleFonts.lexend(
         fontWeight: FontWeight.bold,
         fontSize: (12))
 );
+
+TextStyle txtEmergencyHeading = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: (20))
+);
+
+TextStyle txtEmergencyH1 = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: (13))
+);
+
+TextStyle txtEmergencyParaf = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.normal,
+        fontSize: (12))
+);
+
+TextStyle dialogButtonTextStyle = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: 12));
+
+TextStyle contentDialogButtonTextStyle = GoogleFonts.oxygen(
+    textStyle: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.normal,
+        fontSize: 12));
+
+TextStyle titleDialogButtonTextStyle = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: 14));
