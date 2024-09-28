@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pandu_nyawa/themes/colors.dart';
 import 'package:pandu_nyawa/themes/font_style.dart';
-
+import 'package:get/get.dart';
 import '../screens/home_page/component/footer.dart';
+import '../screens/navigation_page/controller/navigator_controller.dart';
 class DrawerCustom extends StatelessWidget {
-  const DrawerCustom({Key? key}) : super(key: key);
+  final NavigatorController controller = Get.find<NavigatorController>();
+   DrawerCustom({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,10 @@ class DrawerCustom extends StatelessWidget {
                             Text('HOME',style: txtMenuRegular,),
                           ],
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          Get.back();
+                          controller.currentIndex.value = 0;
+                        },
                       ),
                       ListTile(
                         title: Row(

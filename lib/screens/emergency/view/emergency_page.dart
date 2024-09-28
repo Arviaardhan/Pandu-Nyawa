@@ -48,7 +48,7 @@ class EmergencyPage extends GetView<EmergencyController> {
           ),
         ),
       ),
-      endDrawer: const DrawerCustom(),
+      endDrawer: DrawerCustom(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(top: screenHeight * 0.05),
