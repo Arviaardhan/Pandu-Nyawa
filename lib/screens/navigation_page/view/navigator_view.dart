@@ -43,7 +43,15 @@ class BottomNavbar extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBody: true,
-      body: Obx(() => pages[controller.currentIndex.value]),
+      body: Obx(() {
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 300),
+          transitionBuilder: (Widget child, Animation<double> animation) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+          child: pages[controller.currentIndex.value],
+        );
+      }),
       bottomNavigationBar: Obx(() {
         return Offstage(
           offstage: controller.currentIndex.value == 0,
