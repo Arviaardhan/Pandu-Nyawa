@@ -13,6 +13,8 @@ class QuizIdentifyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     final QuizIdentifyController controller = Get.put(QuizIdentifyController());
 
     return Scaffold(
@@ -52,10 +54,16 @@ class QuizIdentifyPage extends StatelessWidget {
                   if (controller.selectedAnswerIndex.value == index) {
                     if (index == quizModel.correctAnswer) {
                       containerColor = Colors.green;
-                      icon = Icon(Icons.check, color: Colors.white);
+                      icon = Padding(
+                        padding: EdgeInsets.only(right: screenWidth * 0.05),
+                        child: Icon(Icons.check, color: Colors.white),
+                      );
                     } else {
                       containerColor = Colors.red;
-                      icon = Icon(Icons.close, color: Colors.white);
+                      icon = Padding(
+                        padding: EdgeInsets.only(right: screenWidth * 0.05),
+                        child: Icon(Icons.close, color: Colors.white),
+                      );
                     }
                   } else {
                     containerColor = Colors.white; // Default color if not selected
@@ -66,7 +74,7 @@ class QuizIdentifyPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 5.0),
                     child: GestureDetector(
                       onTap: () {
-                        controller.selectAnswer(index, quizModel);
+                        controller.selectAnswer(index, quizModel, quizzes);
                       },
                       child: Container(
                         width: double.infinity,
@@ -114,17 +122,56 @@ class QuizIdentifyPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_forward),
-                    onPressed: () {
-                      if (controller.answerSelected.value) { // Only allow navigation if an answer is selected
-                        controller.navigateToNextQuiz(quizzes);
-                      } else {
-                        // Optionally, show a message if no answer is selected
-                        Get.snackbar("Peringatan", "Silakan pilih jawaban terlebih dahulu.");
-                      }
-                    },
-                  ),
+                  child: Obx(() {
+                    // Check if it's the last question
+                    bool isLastQuestion = controller.currentIndex.value == quizzes.length - 1;
+
+                    return IconButton(
+                      icon: isLastQuestion ? Icon(Icons.check) : Icon(Icons.arrow_forward),
+                        onPressed: () {
+                          if (controller.answerSelected.value) {
+                            // Periksa apakah jawaban yang dipilih benar
+                            bool isCorrectAnswer = controller.selectedAnswerIndex.value == quizzes[controller.currentIndex.value].correctAnswer;
+
+                            if (isCorrectAnswer) {
+                              // Cek apakah ini adalah pertanyaan terakhir
+                              if (isLastQuestion) {
+                                // Tampilkan dialog konfirmasi
+                                Get.defaultDialog(
+                                  title: "Konfirmasi",
+                                  content: Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 30),
+                                    child: Text("Apakah Anda yakin ingin mengakhiri kuis?"),
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () => Get.back(),
+                                      child: Text("Tidak"),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        Get.back();
+                                        controller.showResult();
+                                      },
+                                      child: Text("Iya"),
+                                    ),
+                                  ],
+                                );
+                              } else {
+                                // Jika jawaban benar, izinkan navigasi manual
+                                if (controller.canNavigate.value) {
+                                  controller.navigateToNextQuiz(quizzes);
+                                }
+                              }
+                            } else {
+                              controller.showSnackbar("Peringatan", "Jawaban salah, silakan pilih jawaban yang benar.");
+                            }
+                          } else {
+                            controller.showSnackbar("Peringatan", "Silakan pilih jawaban terlebih dahulu.");
+                          }
+                        },
+                    );
+                  }),
                 ),
               ),
             ],

@@ -5,6 +5,9 @@ import 'package:pandu_nyawa/screens/emergency/view/emergency_page.dart';
 import 'package:pandu_nyawa/screens/identify_page/detail_page/controller/detail_controller.dart';
 import 'package:pandu_nyawa/screens/identify_page/quiz_page/view/quiz_view.dart';
 
+import '../../../../widgets/drawer.dart';
+import '../widget/button.dart';
+
 // Assuming LukaModel has a quizzes property and detailIdentifyController has a currentQuizIndex property
 class DetailIdentifyPage extends StatelessWidget {
   final LukaModel lukaModel;
@@ -12,7 +15,7 @@ class DetailIdentifyPage extends StatelessWidget {
 
   DetailIdentifyPage({Key? key, required this.lukaModel, required this.quizType}) : super(key: key);
 
-  DetailIdentifyController detailIdentifyController = Get.find<DetailIdentifyController>();
+  DetailIdentifyController detailIdentifyController = Get.put(DetailIdentifyController());
 
   @override
   Widget build(BuildContext context) {
@@ -65,26 +68,7 @@ class DetailIdentifyPage extends StatelessWidget {
           ),
         ),
       ),
-      endDrawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Menu'),
-            ),
-            ListTile(
-              title: Text('Item 1'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Item 2'),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
+      endDrawer: DrawerCustom(),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: screenWidth * 0.05,
@@ -93,6 +77,14 @@ class DetailIdentifyPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              lukaModel.bab,
+              style: TextStyle(
+                fontSize: screenWidth * 0.05,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            SizedBox(height: 5,),
             Text(
               lukaModel.title,
               style: TextStyle(
@@ -194,30 +186,19 @@ class DetailIdentifyPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerRight,
                     child: Obx(() {
-                      return detailIdentifyController.currentPage.value < stepPages.length - 1
-                          ? Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              spreadRadius: 1,
-                              blurRadius: 3,
-                              offset: Offset(0, 3),
-                            ),
-                          ],
-                        ),
-                        child: IconButton(
-                          icon: Icon(Icons.arrow_forward_ios, size: 24, color: Colors.black),
-                          onPressed: () {
+                      final isLastPage = detailIdentifyController.currentPage.value >= stepPages.length - 1;
+
+                      return CustomButton(
+                        icon: isLastPage ? Icons.arrow_forward : Icons.arrow_forward_ios,
+                        onPressed: () {
+                          if (isLastPage) {
+                            Get.to(() => DetailIdentifyPage(lukaModel: lukaModel, quizType: 'Your Quiz Type'));
+                            print('nama ${lukaModel.title}');
+                          } else {
                             detailIdentifyController.nextPage(stepPages.length);
-                          },
-                        ),
-                      )
-                          : SizedBox.shrink();
+                          }
+                        },
+                      );
                     }),
                   ),
                   Obx(() {

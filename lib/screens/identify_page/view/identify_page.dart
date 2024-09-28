@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pandu_nyawa/screens/identify_page/detail_page/view/detail_page.dart';
 import 'package:pandu_nyawa/screens/navigation_page/view/navigator_view.dart';
 import '../../../data/models/identify_model/identify_model.dart';
 import '../../../widgets/drawer.dart';
@@ -38,12 +40,18 @@ class IdentifyPage extends StatelessWidget {
                 'lib/assets/images/logo-pandu-nyawa.png',
                 height: screenHeight * 0.075,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 6, horizontal: screenWidth * 0.05),
-                decoration: BoxDecoration(
-                    color: Color(0xFFE8B931),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Icon(Icons.person),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                        vertical: 6, horizontal: screenWidth * 0.05),
+                    decoration: BoxDecoration(
+                        color: Color(0xFFE8B931),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Icon(Icons.person),
+                  ),
+                ),
               ),
             ],
           ),
@@ -71,20 +79,26 @@ class IdentifyPage extends StatelessWidget {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.01),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.black, width: 1.5),
-                            color: Colors.white, // Optional: Add background color
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Center(
-                              child: Text(
-                                babKey,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: screenWidth * 0.037, fontWeight: FontWeight.w500),
+                        GestureDetector(
+                          onTap: () {
+                            LukaModel firstSubab = modelsInGroup.first;
+                            Get.to(DetailIdentifyPage(lukaModel: firstSubab, quizType: 'Simulation'));
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.01),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.black, width: 1.5),
+                              color: Colors.white, // Optional: Add background color
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Center(
+                                child: Text(
+                                  babKey,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: screenWidth * 0.037, fontWeight: FontWeight.w500),
+                                ),
                               ),
                             ),
                           ),
