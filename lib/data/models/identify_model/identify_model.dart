@@ -1,6 +1,6 @@
 import '../identify_quiz_model/identify_quiz_model.dart';
 
-class LukaModel {
+class IdentifyModel {
   final String imagePath;
   final String title;
   final List<String> steps;
@@ -8,7 +8,7 @@ class LukaModel {
   final String subBab;
   final List<QuizModel> quizzes;
 
-  LukaModel({
+  IdentifyModel({
     required this.imagePath,
     required this.title,
     required this.steps,
@@ -18,7 +18,7 @@ class LukaModel {
   });
 }
 
-final LukaModel syokAnafilaksis = LukaModel(
+final IdentifyModel syokAnafilaksis = IdentifyModel(
   imagePath: 'lib/assets/images/luka-bakar.png',
   title: 'Penanganan terhadap syok anafilaksis',
   steps: [
@@ -67,7 +67,7 @@ final LukaModel syokAnafilaksis = LukaModel(
   ],
 );
 
-final LukaModel epinefrin = LukaModel(
+final IdentifyModel epinefrin = IdentifyModel(
   imagePath: 'lib/assets/images/luka-bakar.png',
   title: 'Cara menggunakan epinefrin (EpiPen)',
   steps: [
@@ -116,7 +116,7 @@ final LukaModel epinefrin = LukaModel(
   ],
 );
 
-final LukaModel resutasiJantungParu = LukaModel(
+final IdentifyModel resutasiJantungParu = IdentifyModel(
   imagePath: 'lib/assets/images/luka-bakar.png',
   title: 'Cara Melakukan Resutasi Jantung-Paru',
   steps: [
@@ -164,7 +164,7 @@ final LukaModel resutasiJantungParu = LukaModel(
   ],
 );
 
-final LukaModel mengalamiAsma = LukaModel(
+final IdentifyModel mengalamiAsma = IdentifyModel(
   imagePath: 'lib/assets/images/luka-bakar.png',
   title: 'Pertolongan pertama pada Asma',
   steps: [
@@ -211,7 +211,7 @@ final LukaModel mengalamiAsma = LukaModel(
   ],
 );
 
-final LukaModel orangLainMengalamiAsma = LukaModel(
+final IdentifyModel orangLainMengalamiAsma = IdentifyModel(
   imagePath: 'lib/assets/images/luka-bakar.png',
   title: 'Pertolongan pertama pada Orang lain yang mengalami Asma',
   steps: [
@@ -266,7 +266,7 @@ final LukaModel orangLainMengalamiAsma = LukaModel(
   ],
 );
 
-final LukaModel perdarahanLuarBerat = LukaModel(
+final IdentifyModel perdarahanLuarBerat = IdentifyModel(
   imagePath: 'lib/assets/images/luka-bakar.png',
   title: 'Pertolongan pada Perdarahan Luar Berat',
   steps: [
@@ -316,7 +316,7 @@ final LukaModel perdarahanLuarBerat = LukaModel(
   ],
 );
 
-final LukaModel perdarahanLuarRingan = LukaModel(
+final IdentifyModel perdarahanLuarRingan = IdentifyModel(
   imagePath: 'lib/assets/images/luka-bakar.png',
   title: 'Pertolongan pada Perdarahan Luar Ringan',
   steps: [
@@ -365,7 +365,7 @@ final LukaModel perdarahanLuarRingan = LukaModel(
   ],
 );
 
-final LukaModel perdarahanDalam = LukaModel(
+final IdentifyModel perdarahanDalam = IdentifyModel(
   imagePath: 'lib/assets/images/luka-bakar.png',
   title: 'Pertolongan pada Perdarahan Dalam',
   steps: [
@@ -420,7 +420,7 @@ final LukaModel perdarahanDalam = LukaModel(
   ],
 );
 
-final LukaModel pertolonganPatahTulang = LukaModel(
+final IdentifyModel pertolonganPatahTulang = IdentifyModel(
   imagePath: 'lib/assets/images/luka-bakar.png',
   title: 'Pertolongan pada Patah Tulang',
   steps: [
@@ -470,7 +470,7 @@ final LukaModel pertolonganPatahTulang = LukaModel(
   ],
 );
 
-final LukaModel diabetes = LukaModel(
+final IdentifyModel diabetes = IdentifyModel(
   imagePath: 'lib/assets/images/luka-bakar.png',
   title: 'Pertolongan pertama pada Diabetes',
   steps: [
@@ -478,10 +478,12 @@ final LukaModel diabetes = LukaModel(
     '1. Konsumsi 10 hingga 20 g glukosa (misalnya, 2 hingga 4 tablet dekstrosa atau sekitar 1 gelas jus buah) Ukur kadar gula darah setelah 15 menit.',
     '2. Jika kadar glukosa darah tetap rendah (50 hingga 60 mg/dl,atau 2,8 hingga 3,3 mmol/l), minumlah lebih banyak glukosa.Setelah pengobatan berhasil, makanlah makanan atau camilan (misalnya, roti, buah, yogurt) untuk menghindari kambuhnya hipoglikemia.',
     'Setelah pengobatan berhasil, makanlah makanan atau camilan (misalnya, roti, buah, yogurt) untuk menghindari kambuhnya hipoglikemia.',
+
     'Pasien dalam keadaan sadar tetapi tidak mampu untuk menolong dirinya sendiriBerikan 30 g glukosa (jika pasien dapat menelan: misalnya, sekitar 2 gelas jus buah)Ukur kadar gula darah setelah 15 menit, jika kadar glukosa darah tetap rendah (50 hingga 60 mg/dl, atau 2,8 hingga 3,3 mmol/l), minumlah lebih banyak glukosa.Setelah pengobatan berhasil, makanlah makanan atau camilan (misalnya, roti, buah, yogurt) untuk menghindari kambuhnya hipoglikemia.',
     'Pasien tidak sadarkan diri Hubungi layanan darurat (Tekan 112)- Posisi pemulihan- Suntikan glukagon  (1 mg glukagon) ke dalam lengan atas atau paha.Apakah pasien merespon?Ya : Berikan makanan ringan yang manis dan mengandung 30g glukosa Tidak : Tunggu hingga dokter tiba',
     'Gula darah sedikit meningkat (nilai yang disarankan: gula darah nilai hingga 250 mg/dl atau 13,9 mmol/l)-Menyuntikkan insulin yang tepat- Minum air putih- Periksa gula darah setiap 60 menit',
     'Hiperglikemia berat dengan tanda-tanda awal ketoasidosis (misalnya, mual, muntah) (nilai yang direkomendasikan: nilai gula darah di atas 250 mg/dl atau 13,9 mmol/l)Mengukur kadar keton dalam tubuh dengan tes urin, menggunakan strip keton dengan mencelupkannya ke urin untuk mengetahui kadar keton dan/ menggunakan glukometer Tidak ada keton yang terdeteksi Pengukuran dalam urin: Warna terang tanpa tanda “+”Pengukuran dalam darah:di bawah 0,6 mmol/l',
+
     '1. Keton terdeteksi',
     '2. Rendah : Rendah (+) atau hingga 1,5 mmol/l',
     '3. Sedang ++) atau diatas 1,5 mmol /l / Tinggi (+++ atau ++++) atau di atas 4,0 mmol/ :  -Suntikkan insulin tambahan dalam jumlah ganda* - Minum banyak air - Jangan tertidur - Rawat inap di rumah sakit dianjurkan - Periksa gula darah (menggunakan darah) setiap 60 menit',

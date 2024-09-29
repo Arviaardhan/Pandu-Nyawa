@@ -4,21 +4,29 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:pandu_nyawa/data/models/identify_model/identify_model.dart';
 
 import '../detail_page/binding/detail_binding.dart';
+import '../detail_page/controller/detail_controller.dart';
 import '../detail_page/view/detail_page.dart';
 
 class CustomCard extends StatelessWidget {
-  final String text;
-  final LukaModel lukaModel;
+  DetailIdentifyController detailIdentifyController = Get.put(DetailIdentifyController());
 
-  const CustomCard({Key? key, required this.text, required this.lukaModel}) : super(key: key);
+  final String text;
+  final int index;
+  final IdentifyModel lukaModel;
+
+   CustomCard({Key? key, required this.text,required this.lukaModel,required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
       onTap: () {
+        detailIdentifyController.currentSubBabIndex.value = index;
+        print('ini index nya $index');
+        print('ini currentSubBabIndex nya ${detailIdentifyController.currentSubBabIndex.value}');
         Get.to(() => DetailIdentifyPage(lukaModel: lukaModel, quizType: 'Tipe Quiz',), binding: DetailIdentifyBinding());
       },
       child: Container(

@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../../../../data/models/identify_model/identify_model.dart';
 import '../../../../data/models/identify_quiz_model/identify_quiz_model.dart';
 import '../view/detail_page.dart';
@@ -7,7 +6,7 @@ import '../view/detail_page.dart';
 class DetailIdentifyController extends GetxController {
   var currentPage = 0.obs;
   var currentSubBabIndex = 0.obs;
-  var lukaModel = LukaModel(
+  var lukaModel = IdentifyModel(
     imagePath: '',
     title: '',
     steps: [],
@@ -16,7 +15,7 @@ class DetailIdentifyController extends GetxController {
     quizzes: [],
   ).obs;
 
-  List<LukaModel> subBabs = [];
+  List<IdentifyModel> subBabs = [];
 
   @override
   void onInit() {
@@ -46,7 +45,7 @@ class DetailIdentifyController extends GetxController {
     required List<QuizModel> quizzes,
     required String imagePath,
   }) {
-    lukaModel.value = LukaModel(
+    lukaModel.value = IdentifyModel(
       imagePath: imagePath,
       title: title,
       steps: steps,
@@ -56,16 +55,17 @@ class DetailIdentifyController extends GetxController {
     );
   }
 
-  void setCurrentLukaModel(LukaModel newLukaModel) {
-    lukaModel.value = newLukaModel; // Set nilai LukaModel saat ini
+  void setCurrentLukaModel(IdentifyModel newLukaModel) {
+    lukaModel.value = newLukaModel; // Set current LukaModel
   }
 
-  void nextPage(int totalPages) {
+  void nextPage() {
+    int totalPages = (lukaModel.value.steps.length / 4).ceil(); // Calculate total pages
     if (currentPage.value < totalPages - 1) {
       currentPage.value++;
       print('Next Page: ${currentPage.value}');
     } else {
-      nextSubBab();
+      nextSubBab(); // Go to the next sub-bab if it's the last page
     }
   }
 
@@ -80,9 +80,10 @@ class DetailIdentifyController extends GetxController {
     if (currentSubBabIndex.value < subBabs.length - 1) {
       currentSubBabIndex.value++;
       lukaModel.value = subBabs[currentSubBabIndex.value]; // Update the current LukaModel instance
-      lukaModel.refresh();
       currentPage.value = 0; // Reset to the first page of the next sub-bab
-      Get.off(() => DetailIdentifyPage(
+      print(subBabs.length);
+      print(currentSubBabIndex.value);
+      Get.to(() => DetailIdentifyPage(
         lukaModel: lukaModel.value, // Pass the updated lukaModel
         quizType: lukaModel.value.title, // Pass the updated quiz type
       ));

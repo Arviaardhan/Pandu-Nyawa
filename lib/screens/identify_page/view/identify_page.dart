@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pandu_nyawa/screens/identify_page/detail_page/view/detail_page.dart';
@@ -7,7 +9,7 @@ import '../../../widgets/drawer.dart';
 import '../widget/custom_card.dart';
 
 class IdentifyPage extends StatelessWidget {
-  final List<LukaModel> lukaModels;
+  final List<IdentifyModel> lukaModels;
 
   const IdentifyPage({Key? key, required this.lukaModels}) : super(key: key);
 
@@ -16,7 +18,7 @@ class IdentifyPage extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    Map<String, List<LukaModel>> groupedModels = {};
+    Map<String, List<IdentifyModel>> groupedModels = {};
     for (var luka in lukaModels) {
       if (groupedModels.containsKey(luka.bab)) {
         groupedModels[luka.bab]!.add(luka);
@@ -74,14 +76,14 @@ class IdentifyPage extends StatelessWidget {
                   itemCount: groupedModels.keys.length,
                   itemBuilder: (context, groupIndex) {
                     String babKey = groupedModels.keys.elementAt(groupIndex);
-                    List<LukaModel> modelsInGroup = groupedModels[babKey]!;
+                    List<IdentifyModel> modelsInGroup = groupedModels[babKey]!;
 
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GestureDetector(
                           onTap: () {
-                            LukaModel firstSubab = modelsInGroup.first;
+                            IdentifyModel firstSubab = modelsInGroup.first;
                             Get.to(DetailIdentifyPage(lukaModel: firstSubab, quizType: 'Simulation'));
                           },
                           child: Container(
@@ -108,9 +110,10 @@ class IdentifyPage extends StatelessWidget {
                           physics: NeverScrollableScrollPhysics(),
                           itemCount: modelsInGroup.length,
                           itemBuilder: (context, index) {
+                            int index2 = lukaModels.indexWhere((element) => element.subBab == modelsInGroup[index].subBab,);
                             return CustomCard(
                               text: modelsInGroup[index].title,
-                              lukaModel: modelsInGroup[index],
+                              lukaModel: modelsInGroup[index], index: index2,
                             );
                           },
                         ),
@@ -119,8 +122,9 @@ class IdentifyPage extends StatelessWidget {
                   },
                 ),
               ),
+
               SizedBox(height: screenHeight * 0.03),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.info_outline),
