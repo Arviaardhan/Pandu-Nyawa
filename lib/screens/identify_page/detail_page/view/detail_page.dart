@@ -155,7 +155,7 @@ class DetailIdentifyPage extends StatelessWidget {
                           padding: EdgeInsets.all(8.0),
                           children: stepsToDisplay.map((step) {
                             return Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
+                              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
                               child: Text(step, style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white)),
                             );
                           }).toList(),
