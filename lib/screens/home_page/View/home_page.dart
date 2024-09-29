@@ -104,7 +104,6 @@ class HomePage extends StatelessWidget {
                                         style: GoogleFonts.lexend(fontSize: 13, color:  homeController.currentindex.value == 0 ? Colors.white : Colors.black, fontWeight: FontWeight.w600),
                                         iconColor: homeController.currentindex.value == 0 ? Colors.white : Color(0xFFF9AF2A),
                                         onPressed: () {
-                                          homeController.currentindex.value = 0;
                                           homeController.carouselSliderController.animateToPage(0); // Jump to the second slide
                                         },
                                       ),
@@ -122,7 +121,6 @@ class HomePage extends StatelessWidget {
                                         buttonColor: homeController.currentindex.value == 1 ?Color(0xFF6750A4):Colors.white,
                                         iconColor: homeController.currentindex.value == 1 ?Colors.white: Color(0xFF6750A4),
                                         onPressed: () {
-                                          homeController.currentindex.value = 1;
                                           homeController.carouselSliderController.animateToPage(1); // Jump to the second slide
                                         },
                                       ),
@@ -153,7 +151,6 @@ class HomePage extends StatelessWidget {
                                         buttonColor: homeController.currentindex.value == 2 ? Color(0xFF649DF6) : Colors.white,
                                         iconColor: homeController.currentindex.value == 2 ? Colors.white : Color(0xFF649DF6),
                                         onPressed: () {
-                                          homeController.currentindex.value = 2;
                                           homeController.carouselSliderController.animateToPage(2); // Jump to the second slide
                                         },
                                       ),
@@ -172,7 +169,7 @@ class HomePage extends StatelessWidget {
                                       buttonColor: homeController.currentindex.value == 3 ? Color(0xFFB3261E) : Colors.white,
                                       iconColor:homeController.currentindex.value == 3 ?Colors.white: Color(0xFFB3261E),
                                       onPressed: () {
-                                        homeController.currentindex.value = 3;
+
                                         homeController.carouselSliderController.animateToPage(3); // Jump to the second slide
                                       },
                                     ),);
