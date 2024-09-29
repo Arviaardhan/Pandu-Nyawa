@@ -15,7 +15,7 @@ import '../controller/navigator_controller.dart';
 
 class BottomNavbar extends StatelessWidget {
   final NavigatorController controller = Get.find<NavigatorController>();
-  final List<LukaModel> lukaModels = [
+  final List<IdentifyModel> lukaModels = [
     syokAnafilaksis,
     epinefrin,
     resutasiJantungParu,

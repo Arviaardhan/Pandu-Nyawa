@@ -9,7 +9,7 @@ import '../../../../widgets/drawer.dart';
 import '../widget/button.dart';
 
 class DetailIdentifyPage extends StatelessWidget {
-  final LukaModel lukaModel;
+  final IdentifyModel lukaModel;
   final String quizType;
 
   DetailIdentifyPage({Key? key, required this.lukaModel, required this.quizType}) : super(key: key);
@@ -26,7 +26,7 @@ class DetailIdentifyPage extends StatelessWidget {
       detailIdentifyController.currentPage.value = 0;
     });
 
-    void navigateToSubBab(LukaModel newLukaModel) {
+    void navigateToSubBab(IdentifyModel newLukaModel) {
       detailIdentifyController.updateLukaModel(
         title: newLukaModel.title,
         bab: newLukaModel.bab,
@@ -113,18 +113,29 @@ class DetailIdentifyPage extends StatelessWidget {
               ),
               child: Image.asset(lukaModel.imagePath),
             ),
+            //Heading
             SizedBox(height: 20),
+
+            //Body
             Expanded(
               child: Stack(
                 children: [
                   Center(
                     child: Obx(() {
+                      // Get the current steps from the controller
                       List<String> currentSteps = detailIdentifyController.lukaModel.value.steps;
+
+                      // Define page size and total steps
                       int pageSize = 4;
-                      int totalPages = (currentSteps.length / pageSize).ceil();
+                      int totalSteps = currentSteps.length;
                       int currentPage = detailIdentifyController.currentPage.value;
 
-                      List<String> stepsToDisplay = currentSteps.skip(currentPage * pageSize).take(pageSize).toList();
+                      // Calculate start and end indices for the current page
+                      int startIndex = currentPage * pageSize;
+                      int endIndex = (startIndex + pageSize) > totalSteps ? totalSteps : (startIndex + pageSize);
+
+                      // Display the steps on the current page
+                      List<String> stepsToDisplay = currentSteps.sublist(startIndex, endIndex);
 
                       return Container(
                         margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
@@ -145,6 +156,7 @@ class DetailIdentifyPage extends StatelessWidget {
                       );
                     }),
                   ),
+                  // Previous Page Button
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Obx(() {
@@ -174,20 +186,39 @@ class DetailIdentifyPage extends StatelessWidget {
                           : SizedBox.shrink();
                     }),
                   ),
+                  // Next Page Button
                   Align(
                     alignment: Alignment.centerRight,
                     child: Obx(() {
-                      final isLastPage = detailIdentifyController.currentPage.value >= (detailIdentifyController.lukaModel.value.steps.length / 4).ceil() - 1;
+                      int totalSteps = detailIdentifyController.lukaModel.value.steps.length;
+                      int pageSize = 4;
+                      final isLastPage = detailIdentifyController.currentPage.value >= (totalSteps / pageSize).ceil() - 1;
 
-                      return CustomButton(
-                        icon: isLastPage ? Icons.arrow_forward : Icons.arrow_forward_ios,
-                        onPressed: () {
-                          if (isLastPage) {
-                            detailIdentifyController.nextSubBab(); // Call nextSubBab
-                          } else {
-                            detailIdentifyController.nextPage(detailIdentifyController.lukaModel.value.steps.length ~/ 4);
-                          }
-                        },
+                      return Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 1,
+                              blurRadius: 3,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: IconButton(
+                          icon: Icon(Icons.arrow_forward_ios, size: 24, color: Colors.black),
+                          onPressed: () {
+                            if (isLastPage) {
+                              detailIdentifyController.nextSubBab(); // Final action when it's the last page
+                            } else {
+                              detailIdentifyController.nextPage();
+                            }
+                          },
+                        ),
                       );
                     }),
                   ),
@@ -196,24 +227,36 @@ class DetailIdentifyPage extends StatelessWidget {
             ),
             Obx(() {
               int totalSteps = detailIdentifyController.lukaModel.value.steps.length;
-
               // Check if we're on the last page based on the steps length
               bool isLastPage = detailIdentifyController.currentPage.value == (totalSteps / 4).ceil() - 1;
 
               if (isLastPage) {
-                return Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        if (lukaModel.quizzes.isNotEmpty) // Ensure there's at least one quiz
+                return Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          if (lukaModel.quizzes.isNotEmpty) // Ensure there's at least one quiz
+                            ElevatedButton(
+                              onPressed: () {
+                                Get.to(() => QuizIdentifyPage(quizzes: lukaModel.quizzes));
+                              },
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(color: Colors.black, width: 1.0),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                                backgroundColor: Color(0xFFFFF5D7),
+                              ),
+                              child: Text('Test Simulasi', style: TextStyle(color: Colors.black)),
+                            ),
                           ElevatedButton(
                             onPressed: () {
-                              Get.to(() => QuizIdentifyPage(quizzes: lukaModel.quizzes));
+                              Get.to(EmergencyPage());
                             },
                             style: OutlinedButton.styleFrom(
                               side: BorderSide(color: Colors.black, width: 1.0),
@@ -223,30 +266,18 @@ class DetailIdentifyPage extends StatelessWidget {
                               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                               backgroundColor: Color(0xFFFFF5D7),
                             ),
-                            child: Text('Test Simulasi', style: TextStyle(color: Colors.black)),
+                            child: Text('Emergency', style: TextStyle(color: Colors.black)),
                           ),
-                        ElevatedButton(
-                          onPressed: () {
-                            Get.to(EmergencyPage());
-                          },
-                          style: OutlinedButton.styleFrom(
-                            side: BorderSide(color: Colors.black, width: 1.0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                            backgroundColor: Color(0xFFFFF5D7),
-                          ),
-                          child: Text('Emergency', style: TextStyle(color: Colors.black)),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+                    ],
                   ),
                 );
               } else {
                 return SizedBox.shrink(); // Hide the buttons if not on the last page
               }
             }),
+
           ],
         ),
       ),
