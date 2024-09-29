@@ -26,6 +26,9 @@ class BottomNavbar extends StatelessWidget {
     perdarahanDalam,
     pertolonganPatahTulang,
     diabetes,
+    distress,
+    tersedak,
+    lukaBakar,
   ];
 
   BottomNavbar({super.key});

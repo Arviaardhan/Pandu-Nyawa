@@ -22,8 +22,9 @@ class DetailIdentifyPage extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      detailIdentifyController.setCurrentLukaModel(lukaModel); // Update LukaModel
+      detailIdentifyController.setCurrentLukaModel(lukaModel);
       detailIdentifyController.currentPage.value = 0;
+      detailIdentifyController.currentImageIndex.value = 0;
     });
 
     void navigateToSubBab(IdentifyModel newLukaModel) {
@@ -111,7 +112,13 @@ class DetailIdentifyPage extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Image.asset(lukaModel.imagePath),
+              child: Obx(() {
+                if (detailIdentifyController.lukaModel.value.imagePath.isNotEmpty) {
+                  return Image.asset(detailIdentifyController.lukaModel.value.imagePath[detailIdentifyController.currentImageIndex.value]);
+                } else {
+                  return SizedBox(); // Handle case where there are no images
+                }
+              }),
             ),
             //Heading
             SizedBox(height: 20),
@@ -237,12 +244,15 @@ class DetailIdentifyPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: detailIdentifyController.lukaModel.value.quizzes.isNotEmpty
+                            ? MainAxisAlignment.spaceEvenly
+                            : MainAxisAlignment.center,
                         children: [
-                          if (lukaModel.quizzes.isNotEmpty) // Ensure there's at least one quiz
-                            ElevatedButton(
+                          Obx(() {
+                            return detailIdentifyController.lukaModel.value.quizzes.isNotEmpty
+                                ? ElevatedButton(
                               onPressed: () {
-                                Get.to(() => QuizIdentifyPage(quizzes: lukaModel.quizzes));
+                                Get.to(() => QuizIdentifyPage(quizzes: detailIdentifyController.lukaModel.value.quizzes));
                               },
                               style: OutlinedButton.styleFrom(
                                 side: BorderSide(color: Colors.black, width: 1.0),
@@ -253,7 +263,9 @@ class DetailIdentifyPage extends StatelessWidget {
                                 backgroundColor: Color(0xFFFFF5D7),
                               ),
                               child: Text('Test Simulasi', style: TextStyle(color: Colors.black)),
-                            ),
+                            ) : SizedBox(); // Use SizedBox.shrink() if there are no quizzes
+                          }),
+
                           ElevatedButton(
                             onPressed: () {
                               Get.to(EmergencyPage());

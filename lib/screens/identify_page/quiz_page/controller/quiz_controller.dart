@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../data/models/identify_model/identify_model.dart';
 import '../../../../data/models/identify_quiz_model/identify_quiz_model.dart';
 
 class QuizIdentifyController extends GetxController {
@@ -12,6 +13,15 @@ class QuizIdentifyController extends GetxController {
   var hasAnsweredCorrectly = false.obs;
   var isSnackBarOpen = false.obs;
   var canNavigate = true.obs;
+
+  var lukaModel = IdentifyModel(
+    imagePath: [],
+    title: '',
+    steps: [],
+    bab: '',
+    subBab: '',
+    quizzes: [],
+  ).obs;
 
   void navigateToNextQuiz(List<QuizModel> quizzes) {
     if (currentIndex.value + 1 < quizzes.length) {
@@ -26,7 +36,6 @@ class QuizIdentifyController extends GetxController {
       });
     }
   }
-
 
   void showResult() {
     Get.defaultDialog(
