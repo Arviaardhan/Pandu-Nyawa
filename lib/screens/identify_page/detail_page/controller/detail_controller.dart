@@ -6,8 +6,9 @@ import '../view/detail_page.dart';
 class DetailIdentifyController extends GetxController {
   var currentPage = 0.obs;
   var currentSubBabIndex = 0.obs;
+  var currentImageIndex = 0.obs;
   var lukaModel = IdentifyModel(
-    imagePath: '',
+    imagePath: [],
     title: '',
     steps: [],
     bab: '',
@@ -33,7 +34,10 @@ class DetailIdentifyController extends GetxController {
       perdarahanLuarRingan,
       perdarahanDalam,
       pertolonganPatahTulang,
-      diabetes
+      diabetes,
+      distress,
+      tersedak,
+      lukaBakar,
     ];
   }
 
@@ -43,7 +47,7 @@ class DetailIdentifyController extends GetxController {
     required String subBab,
     required List<String> steps,
     required List<QuizModel> quizzes,
-    required String imagePath,
+    required List<String> imagePath,
   }) {
     lukaModel.value = IdentifyModel(
       imagePath: imagePath,
@@ -53,16 +57,19 @@ class DetailIdentifyController extends GetxController {
       subBab: subBab,
       quizzes: quizzes,
     );
+    currentImageIndex.value = 0;
   }
 
   void setCurrentLukaModel(IdentifyModel newLukaModel) {
-    lukaModel.value = newLukaModel; // Set current LukaModel
+    lukaModel.value = newLukaModel;
+    currentImageIndex.value = 0;
   }
 
   void nextPage() {
     int totalPages = (lukaModel.value.steps.length / 4).ceil(); // Calculate total pages
     if (currentPage.value < totalPages - 1) {
       currentPage.value++;
+      currentImageIndex.value = (currentPage.value * 4) ~/ 4;
       print('Next Page: ${currentPage.value}');
     } else {
       nextSubBab(); // Go to the next sub-bab if it's the last page
@@ -72,6 +79,7 @@ class DetailIdentifyController extends GetxController {
   void previousPage() {
     if (currentPage.value > 0) {
       currentPage.value--;
+      currentImageIndex.value = (currentPage.value * 4) ~/ 4;
       print('Previous Page: ${currentPage.value}');
     }
   }
@@ -79,8 +87,9 @@ class DetailIdentifyController extends GetxController {
   void nextSubBab() {
     if (currentSubBabIndex.value < subBabs.length - 1) {
       currentSubBabIndex.value++;
-      lukaModel.value = subBabs[currentSubBabIndex.value]; // Update the current LukaModel instance
-      currentPage.value = 0; // Reset to the first page of the next sub-bab
+      lukaModel.value = subBabs[currentSubBabIndex.value];
+      currentPage.value = 0;
+      currentImageIndex.value = 0;
       print(subBabs.length);
       print(currentSubBabIndex.value);
       Get.to(() => DetailIdentifyPage(

@@ -1,7 +1,7 @@
 import '../identify_quiz_model/identify_quiz_model.dart';
 
 class IdentifyModel {
-  final String imagePath;
+  final List<String> imagePath;
   final String title;
   final List<String> steps;
   final String bab;
@@ -19,7 +19,7 @@ class IdentifyModel {
 }
 
 final IdentifyModel syokAnafilaksis = IdentifyModel(
-  imagePath: 'lib/assets/images/luka-bakar.png',
+  imagePath: ['lib/assets/images/syok1.png', 'lib/assets/images/resutasi2.png'],
   title: 'Penanganan terhadap syok anafilaksis',
   steps: [
     '1. Segera hubungi ambulans atau nomor darurat rumah sakit terdekat.',
@@ -33,42 +33,11 @@ final IdentifyModel syokAnafilaksis = IdentifyModel(
   ],
   bab: 'Alergi',
   subBab: '1.1 Syok Anafilaksis',
-  quizzes: [
-    QuizModel(
-      question: '1. Apa yang bisa menyebabkan reaksi alergi?',
-      options: [
-        'Air Bersih',
-        'Debu dan serbuk sari',
-        'Udara segar',
-        'Matahari'
-      ],
-      correctAnswer: 1,
-    ),
-    QuizModel(
-      question: '2. Dimana sebaiknya menyuntikkan EpiPen?',
-      options: [
-        'Di lengan',
-        'Di perut',
-        'Di paha atas',
-        'Di punggung'
-      ],
-      correctAnswer: 0,
-    ),
-    QuizModel(
-      question: '3. Apa gejala utama yang sering muncul saat serangan asma?',
-      options: [
-        'Sesak napas',
-        'Mata berair',
-        'Berkeringat',
-        'Sakit kepala'
-      ],
-      correctAnswer: 0,
-    ),
-  ],
+  quizzes: [],
 );
 
 final IdentifyModel epinefrin = IdentifyModel(
-  imagePath: 'lib/assets/images/luka-bakar.png',
+  imagePath: ['lib/assets/images/EpiPen 2.png', 'lib/assets/images/EpiPen 3.png'],
   title: 'Cara menggunakan epinefrin (EpiPen)',
   steps: [
     'Epinefrin merupakan obat alergi darurat yang bekerja cepat dan sangat penting bagi orang yang berisiko mengalami anafilaksis. Mengingat anafilaksis dapat berakibat fatal, kamu harus menggunakan obat ini segera setelah reaksi alergi parah mulai terlihat.',
@@ -82,42 +51,11 @@ final IdentifyModel epinefrin = IdentifyModel(
   ],
   bab: 'Alergi',
   subBab: '1.2 Epipen',
-  quizzes: [
-    QuizModel(
-      question: '1. Apa yang bisa menyebabkan reaksi alergi?',
-      options: [
-        'Air Bersih',
-        'Debu dan serbuk sari',
-        'Udara segar',
-        'Matahari'
-      ],
-      correctAnswer: 1,
-    ),
-    QuizModel(
-      question: '2. Dimana sebaiknya menyuntikkan EpiPen?',
-      options: [
-        'Di lengan',
-        'Di perut',
-        'Di paha atas',
-        'Di punggung'
-      ],
-      correctAnswer: 0,
-    ),
-    QuizModel(
-      question: '3. Apa gejala utama yang sering muncul saat serangan asma?',
-      options: [
-        'Sesak napas',
-        'Mata berair',
-        'Berkeringat',
-        'Sakit kepala'
-      ],
-      correctAnswer: 0,
-    ),
-  ],
+  quizzes: [],
 );
 
 final IdentifyModel resutasiJantungParu = IdentifyModel(
-  imagePath: 'lib/assets/images/luka-bakar.png',
+  imagePath: ['lib/assets/images/resutasiJantung.png', 'lib/assets/images/resutasi2.png'],
   title: 'Cara Melakukan Resutasi Jantung-Paru',
   steps: [
     'RJP merupakan pertolongan pertama bila penderita alergi parah tidak dapat bernapas. Teknik ini akan menghabiskan tenaga penolong, jadi pastikan kamu bersama orang lain dan sudah menghubungi ambulans untuk mendapatkan bantuan medis.',
@@ -165,7 +103,7 @@ final IdentifyModel resutasiJantungParu = IdentifyModel(
 );
 
 final IdentifyModel mengalamiAsma = IdentifyModel(
-  imagePath: 'lib/assets/images/luka-bakar.png',
+  imagePath: ['lib/assets/images/asma1.png', 'lib/assets/images/asma2.png'],
   title: 'Pertolongan pertama pada Asma',
   steps: [
     'Jika kamu sedang mengalami serangan asma, tetaplah tenang dan lakukan langkah-langkah pertolongan pertama pada asma berikut ini : ',
@@ -177,42 +115,11 @@ final IdentifyModel mengalamiAsma = IdentifyModel(
   ],
   bab: 'Asma',
   subBab: '1.1 Asma',
-  quizzes: [
-    QuizModel(
-      question: '1. Apa yang bisa menyebabkan reaksi alergi?',
-      options: [
-        'Air Bersih',
-        'Debu dan serbuk sari',
-        'Udara segar',
-        'Matahari'
-      ],
-      correctAnswer: 1,
-    ),
-    QuizModel(
-      question: '2. Dimana sebaiknya menyuntikkan EpiPen?',
-      options: [
-        'Di lengan',
-        'Di perut',
-        'Di paha atas',
-        'Di punggung'
-      ],
-      correctAnswer: 0,
-    ),
-    QuizModel(
-      question: '3. Apa gejala utama yang sering muncul saat serangan asma?',
-      options: [
-        'Sesak napas',
-        'Mata berair',
-        'Berkeringat',
-        'Sakit kepala'
-      ],
-      correctAnswer: 0,
-    ),
-  ],
+  quizzes: [],
 );
 
 final IdentifyModel orangLainMengalamiAsma = IdentifyModel(
-  imagePath: 'lib/assets/images/luka-bakar.png',
+  imagePath: ['lib/assets/images/asmaOrang1.png', 'lib/assets/images/asmaOrang2.png', 'lib/assets/images/inhalerAsma.png', 'lib/assets/images/asmaOrang4.png'],
   title: 'Pertolongan pertama pada Orang lain yang mengalami Asma',
   steps: [
     'Apabila melihat orang lain sedang mengalami serangan asma, kamu bisa membantunya dengan mempraktikkan pertolongan pertama pada asma berikut ini : ',
@@ -234,32 +141,12 @@ final IdentifyModel orangLainMengalamiAsma = IdentifyModel(
   subBab: '1.2 Pertolongan pertama pada Orang lain yang mengalami Asma',
   quizzes: [
     QuizModel(
-      question: '1. Apa yang bisa menyebabkan reaksi alergi?',
-      options: [
-        'Air Bersih',
-        'Debu dan serbuk sari',
-        'Udara segar',
-        'Matahari'
-      ],
-      correctAnswer: 1,
-    ),
-    QuizModel(
-      question: '2. Dimana sebaiknya menyuntikkan EpiPen?',
-      options: [
-        'Di lengan',
-        'Di perut',
-        'Di paha atas',
-        'Di punggung'
-      ],
-      correctAnswer: 0,
-    ),
-    QuizModel(
-      question: '3. Apa gejala utama yang sering muncul saat serangan asma?',
+      question: '1. Apa gejala utama yang sering muncul saat serangan asma?',
       options: [
         'Sesak napas',
-        'Mata berair',
+        'Mata Berair',
         'Berkeringat',
-        'Sakit kepala'
+        'Sakit Kepala'
       ],
       correctAnswer: 0,
     ),
@@ -267,7 +154,7 @@ final IdentifyModel orangLainMengalamiAsma = IdentifyModel(
 );
 
 final IdentifyModel perdarahanLuarBerat = IdentifyModel(
-  imagePath: 'lib/assets/images/luka-bakar.png',
+  imagePath: ['lib/assets/images/lukaDalam.PNG', 'lib/assets/images/perbanTebal.PNG', 'lib/assets/images/cuciTangan.PNG'],
   title: 'Pertolongan pada Perdarahan Luar Berat',
   steps: [
     'Perdarahan Luar Berat yang bersifat fatal seperti perdarahan arteri dan vena dapat ditangani dengan langkah-langkah berikut : ',
@@ -282,42 +169,11 @@ final IdentifyModel perdarahanLuarBerat = IdentifyModel(
   ],
   bab: 'Perdarahan',
   subBab: '1.1 Pertolongan pada Perdarahan Luar Berat',
-  quizzes: [
-    QuizModel(
-      question: '1. Apa warna darah yang umumnya keluar saat terjadi perdarahan arteri?',
-      options: [
-        'Merah Tua',
-        'Merah Cerah',
-        'Kuning',
-        'Coklat'
-      ],
-      correctAnswer: 1,
-    ),
-    QuizModel(
-      question: '2. Apa gejala umum muncul pada perdarahan dalam otot?',
-      options: [
-        'Muntah darah',
-        'Rasa nyeri dan kaku',
-        'Mimisan',
-        'Kelelahan'
-      ],
-      correctAnswer: 0,
-    ),
-    QuizModel(
-      question: 'Berikut yang merupakan gejala yang sering muncul pada area tulang yang patah adalah?',
-      options: [
-        'Nyeri dan bengkak',
-        'Pusing dan mual',
-        'Rasa gatal',
-        'Berat badan turun'
-      ],
-      correctAnswer: 0,
-    ),
-  ],
+  quizzes: [],
 );
 
 final IdentifyModel perdarahanLuarRingan = IdentifyModel(
-  imagePath: 'lib/assets/images/luka-bakar.png',
+  imagePath: ['lib/assets/images/perbanRingan.PNG', 'lib/assets/images/cuciTangan.PNG'],
   title: 'Pertolongan pada Perdarahan Luar Ringan',
   steps: [
     'Perdarahan Luar Ringan seperti perdarahan kapiler memiliki derajat kedaruratan yang lebih rendah. Berikut adalah cara menanganinya : ',
@@ -331,58 +187,14 @@ final IdentifyModel perdarahanLuarRingan = IdentifyModel(
   ],
   bab: 'Perdarahan',
   subBab: '1.2 Pertolongan pada Perdarahan Luar Ringan',
-  quizzes: [
-    QuizModel(
-      question: '1. Apa warna darah yang umumnya keluar saat terjadi perdarahan arteri?',
-      options: [
-        'Merah Tua',
-        'Merah Cerah',
-        'Kuning',
-        'Coklat'
-      ],
-      correctAnswer: 1,
-    ),
-    QuizModel(
-      question: '2. Apa gejala umum muncul pada perdarahan dalam otot?',
-      options: [
-        'Muntah darah',
-        'Rasa nyeri dan kaku',
-        'Mimisan',
-        'Kelelahan'
-      ],
-      correctAnswer: 0,
-    ),
-    QuizModel(
-      question: 'Berikut yang merupakan gejala yang sering muncul pada area tulang yang patah adalah?',
-      options: [
-        'Nyeri dan bengkak',
-        'Pusing dan mual',
-        'Rasa gatal',
-        'Berat badan turun'
-      ],
-      correctAnswer: 0,
-    ),
-  ],
+  quizzes: [],
 );
 
 final IdentifyModel perdarahanDalam = IdentifyModel(
-  imagePath: 'lib/assets/images/luka-bakar.png',
+  imagePath: ['lib/assets/images/perdarahanDalam.PNG'],
   title: 'Pertolongan pada Perdarahan Dalam',
   steps: [
-    'Apabila melihat orang lain sedang mengalami serangan asma, kamu bisa membantunya dengan mempraktikkan pertolongan pertama pada asma berikut ini : ',
-    '1. Hubungi ambulans',
-    '2. Bantulah orang tersebut untuk duduk tegak dengan nyaman, sambil melonggarkan pakaiannya agar tidak sesak',
-    '3. Tanyakan faktor pencetus asma dan jauhkan penderita dari kemungkinan pencetusnya, seperti debu, udara dingin, atau hewan peliharaan',
-    '4. Jika orang tersebut memiliki obat asma, seperti inhaler, bantu dia untuk menggunakannya',
-    '5. Jika dia tidak memiliki inhaler, gunakan inhaler yang ada di kotak P3K, jangan menggunakan obat inhaler dari penderita asma yang lain',
-    '6. Setelah itu, tempelkan mouthpiece pada mulut penderita dan usahakan agar mulut penderita menutupi seluruh ujung mouthpiece',
-    '7. Ketika penderita mengambil napas perlahan-lahan, tekan inhaler satu kali. Minta dia agar tetap mengambil napas pelan-pelan dan sedalam mungkin, kemudian tahan napas selama 10 detik',
-    '8. Semprotkan inhaler sebanyak empat kali, dengan jarak waktu sekitar 1 menit tiap kali semprotan',
-    '9. Setelah empat semprotan, tunggu hingga 4 menit. Jika masih sulit bernapas, berikan empat semprotan lagi dengan jarak waktu yang sama',
-    '10. Setelah empat semprotan, tunggu hingga 4 menit. Jika masih sulit bernapas, berikan empat semprotan lagi dengan jarak waktu yang sama',
-    '11. Jika tetap tidak ada perubahan, berikan empat semprotan inhaler setiap 4 menit sekali, sampai ambulans tiba',
-    '12. Jika asma nya berat, semprotkan inhaler sebanyak 6 - 8 kali setiap 5 menit',
-    '13. Lakukan langkah pertolongan diatas sambil menunggu bantuan datang, dan jangan tinggalkan penderita asma sendirian.',
+    'Pendarahan dalam atau internal tidak dapat ditangani tenaga non-medis seperti pendarahan terbuka. Anda membutuhkan bantuan medis untuk mengetahui lokasi yang terkena dan cara mengatasinya. Mengobati pendarahan perlu disesuaikan dengan area tubuh yang mengalami hal tersebut. Maka dari itu, bila Anda mengalami kondisi-kondisi yang menunjukkan perdarahan dalam tubuh, segeralah periksakan diri ke dokter untuk memperoleh penanganan yang tepat.',
   ],
   bab: 'Perdarahan',
   subBab: '1.3 Pertolongan pada Perdarahan Dalam',
@@ -421,7 +233,7 @@ final IdentifyModel perdarahanDalam = IdentifyModel(
 );
 
 final IdentifyModel pertolonganPatahTulang = IdentifyModel(
-  imagePath: 'lib/assets/images/luka-bakar.png',
+  imagePath: ['lib/assets/images/patahTulang.PNG', 'lib/assets/images/p3.png', 'lib/assets/images/patahTulang.PNG'],
   title: 'Pertolongan pada Patah Tulang',
   steps: [
     'Tujuan utama penanganan patah tulang adalah mengembalikan tulang yang patah ke posisinya semula dan menjaganya agar tetap stabil, serta mencegah perburukan kondisi. Berikut adalah pertolongan pertama yang bisa dilakukan bagi penolong tenaga non-medis : ',
@@ -458,7 +270,7 @@ final IdentifyModel pertolonganPatahTulang = IdentifyModel(
       correctAnswer: 0,
     ),
     QuizModel(
-      question: 'Berikut yang merupakan gejala yang sering muncul pada area tulang yang patah adalah?',
+      question: '3. Berikut yang merupakan gejala yang sering muncul pada area tulang yang patah adalah?',
       options: [
         'Nyeri dan bengkak',
         'Pusing dan mual',
@@ -471,7 +283,7 @@ final IdentifyModel pertolonganPatahTulang = IdentifyModel(
 );
 
 final IdentifyModel diabetes = IdentifyModel(
-  imagePath: 'lib/assets/images/luka-bakar.png',
+  imagePath: ['lib/assets/images/Diabetes 1.png', 'lib/assets/images/Diab 4.png', 'lib/assets/images/Diab 6.png'],
   title: 'Pertolongan pertama pada Diabetes',
   steps: [
     'Kadar gula darah cukup rendah (Nilai referensi: Kadar gula darah di bawah 70 mg/dl atau 3,9 mmol/l)',
@@ -490,34 +302,102 @@ final IdentifyModel diabetes = IdentifyModel(
   ],
   bab: 'Keadaan Darurat',
   subBab: '1.1 Pertolongan pertama pada Diabetes',
+  quizzes: [],
+);
+
+final IdentifyModel distress = IdentifyModel(
+  imagePath: ['lib/assets/images/disstress.PNG',],
+  title: 'Pertolongan pertama pada Distress',
+  steps: [
+    'Kenali tanda-tanda distress dan minta bantuan orang terdekat.Lakukan relaksasi dengan bernapas dalam-dalam, meditasi, atau yoga.Lakukan aktivitas yang menyenangkan dan menenangkan seperti mendengarkan musik atau jalan-jalan.Makan makanan bergizi dan cukup istirahat.Hindari alkohol, nikotin, dan obat-obatan.Jika distress berlanjut, segera konsultasi dengan dokter atau psikolog',
+  ],
+  bab: 'Keadaan Darurat',
+  subBab: '1.2 Pertolongan pertama pada Distress',
+  quizzes: [],
+);
+
+final IdentifyModel tersedak = IdentifyModel(
+  imagePath: ['lib/assets/images/Tersedak.png', 'lib/assets/images/Tersedak (2).png', 'lib/assets/images/asmaOrang4.png'],
+  title: 'Pertolongan pertama kepada yang tersedak',
+  steps: [
+    'Jika melihat orang lain tersedak maka lakukan beberapa cara ini untuk membantu orang tersebut',
+    '1. Berdiri di belakang orang tersebut dengan posisi agak serong.',
+    '2. Tahan dadanya dengan satu tangan. Condongkan badannya ke depan agar makanan yang tersangkut keluar dari mulutnya dan tidak masuk makin dalam.',
+    '3. Tepuk bagian punggung di bawah tengkuk sampai 5 kali dengan pangkal telapak tangan.',
+    'Bila pasien tersedak tidak berhasil mengeluarkan makanannya, maka ikuti cara berikut ini.',
+    '1. Pertama, berdiri di belakang orang tersebut.',
+    '2. Lingkarkan lengan Anda di pinggangnya, lalu condongkan badannya ke depan.',
+    '3. Kepalkan satu tangan, lalu letakkan dekat pusar (di atasnya).',
+    '4. Letakkan tangan satunya di atas kepalan, lalu entakkan kedua lengan ke dalam perut ke arah atas.',
+    '5. Ulangi gerakan ini sampai 5 kali',
+    '6. Jika kedua cara tersebut tidak berhasil, maka lakukan berkali-kali sampai bala bantuan datang',
+  ],
+  bab: 'Keadaan Darurat',
+  subBab: '1.3 Pertolongan pertama kepada yang tersedak',
   quizzes: [
     QuizModel(
-      question: '1. Apa yang bisa menyebabkan reaksi alergi?',
+      question: '1. Apa yang harus dilakukan ketika ada yang tersedak?',
       options: [
-        'Air Bersih',
-        'Debu dan serbuk sari',
-        'Udara segar',
-        'Matahari'
+        'Memukulnya',
+        'Membiarkannya',
+        'Memberitahunya',
+        'Membelakanginya'
+      ],
+      correctAnswer: 3,
+    ),
+    QuizModel(
+      question: '2. Apa yang harus dilakukan setelah membelakangi orang tersedak?',
+      options: [
+        'Tahan dadanya',
+        'Melambaikan',
+        'Berbisik',
+        'Berdiri saja'
+      ],
+      correctAnswer: 0,
+    ),
+  ],
+);
+
+final IdentifyModel lukaBakar = IdentifyModel(
+  imagePath: ['lib/assets/images/Luka bakar 1.png', 'lib/assets/images/Luka bakar 2.png'],
+  title: 'Pertolongan pada Luka Bakar',
+  steps: [
+    'Jika mengalami luka bakar, tetap tenang dan ikuti langkah-langkah berikut ini supaya luka bakar tersebut bisa di minimalisir rasa nyeri pada luka bakar.',
+    '1. Menjauh dari sumber luka bakar, supaya luka bakar tidak menambah',
+    '2. Dinginkan luka bakar, disini kalian harus mencari air yang mengalir dan letakkan luka bakar tersebut di air mengalir selama 20 menit.',
+    '3. Redakan nyeri luka bakar dengan mencari obat anti nyeri seperti paracetamol atau ibuprofen',
+    '4. Menutup luka bakar dengan pembalut yang halus supaya tidak merasakan kedinginan sampai rumah sakit atau puskesmas',
+  ],
+  bab: 'Luka Bakar',
+  subBab: '1.1 Pertolongan pada Luka Bakar',
+  quizzes: [
+    QuizModel(
+      question: '1. Apa yang harus dilakukan ketika terdampak luka bakar?',
+      options: [
+        'Geser',
+        'Menjauh',
+        'Mendekat',
+        'Menyentuh'
       ],
       correctAnswer: 1,
     ),
     QuizModel(
-      question: '2. Dimana sebaiknya menyuntikkan EpiPen?',
+      question: '2. Apa yang harus dilakukan setelah menajuh tetapi terdampak luka bakar?',
       options: [
-        'Di lengan',
-        'Di perut',
-        'Di paha atas',
-        'Di punggung'
+        'Mendinginkannya',
+        'Meniupnya',
+        'Hempaskannya',
+        'Menyentuh'
       ],
       correctAnswer: 0,
     ),
     QuizModel(
-      question: '3. Apa gejala utama yang sering muncul saat serangan asma?',
+      question: '3. Apa yang harus dilakukan setelah Mendinginkannya?',
       options: [
-        'Sesak napas',
-        'Mata berair',
-        'Berkeringat',
-        'Sakit kepala'
+        'Membalut',
+        'Membiarkannya',
+        'Meneduhkan',
+        'Menyentuh'
       ],
       correctAnswer: 0,
     ),
