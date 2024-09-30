@@ -6,11 +6,14 @@ import 'package:pandu_nyawa/themes/icon.dart';
 class CustomElevatedButton extends StatelessWidget {
   final String text;
   final TextStyle style;
+  final IconData? icons;
   final Color buttonColor;
   final Color iconColor;
+  final bool isSvg;
   final VoidCallback onPressed;
   final double? width;
   final double height;
+  final double bottomPadding;
 
   CustomElevatedButton({
     required this.text,
@@ -19,7 +22,7 @@ class CustomElevatedButton extends StatelessWidget {
     required this.iconColor,
     required this.onPressed,
     this.width,
-    required this.height,
+    required this.height, this.icons, required this.bottomPadding, required this.isSvg,
   });
 
   @override
@@ -55,8 +58,8 @@ class CustomElevatedButton extends StatelessWidget {
                 color: iconColor,
                 shape: BoxShape.circle,
               ),
-              child : Icon(Icons.health_and_safety,color: buttonColor,size: 30,),
-              padding: EdgeInsets.all(5),
+              child : Center(child: isSvg ? SvgPicture.asset(IconThemes.iconSimulation,color: buttonColor,width: 30,height: 25,) : Icon(icons,color: buttonColor,size: 30,)),
+              padding: EdgeInsets.only(top: 5,bottom: bottomPadding,right: 5,left: 5),
             ),
             SizedBox(width: screenWidth * 0.03),
             Text(

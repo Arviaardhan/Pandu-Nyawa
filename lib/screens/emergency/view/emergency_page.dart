@@ -4,6 +4,7 @@ import 'package:pandu_nyawa/data/models/emergency_model/emergency_model.dart';
 import 'package:pandu_nyawa/screens/emergency/controller/emergency_controller.dart';
 import '../../../themes/font_style.dart';
 import '../../../widgets/drawer.dart';
+import '../../../widgets/reusable_appbar.dart';
 import '../widget/phone_number_widget.dart';
 
 class EmergencyPage extends GetView<EmergencyController> {
@@ -19,35 +20,7 @@ class EmergencyPage extends GetView<EmergencyController> {
       backgroundColor: const Color(0xFFFFF5D7),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenHeight * 0.08),
-        child: AppBar(
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          surfaceTintColor: Colors.white,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                'lib/assets/images/logo-pandu-nyawa.png',
-                height: screenHeight * 0.075,
-              ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        vertical: 6, horizontal: screenWidth * 0.05),
-                    decoration: BoxDecoration(
-                        color: const Color(0xFFE8B931),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const Icon(Icons.person),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: AppbarCustom(),
       ),
       endDrawer: DrawerCustom(),
       body: SingleChildScrollView(

@@ -118,13 +118,14 @@ class BottomNavbar extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 3),
                       child: Row(
                         children: [
-                          const Icon(Icons.monitor_heart_outlined, color: Color.fromARGB(255, 38, 71, 76)),
+
+                           SvgPicture.asset(IconThemes.iconSimulation,color: Color.fromARGB(255, 38, 71, 76),width: 15,height: 17,),
                           const SizedBox(width: 2),
                           Text('Simulation', style: BottomNavbarSelectedTextStyle(3)),
                         ],
                       ),
                     )
-                        : const Icon(Icons.monitor_heart_outlined, color: Colors.black)),
+                        : SvgPicture.asset(IconThemes.iconSimulation,color: Colors.black,width: 15,height: 17,),)
                   ),
                   GButton(
                     icon: Icons.warning_outlined,
@@ -139,7 +140,7 @@ class BottomNavbar extends StatelessWidget {
                         ],
                       ),
                     )
-                        : const Icon(Icons.warning_outlined, color: Colors.black)),
+                        : const Icon(Icons.warning_outlined, color: Colors.black,)),
                   ),
                 ],
               ),
