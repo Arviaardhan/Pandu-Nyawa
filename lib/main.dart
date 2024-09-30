@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:pandu_nyawa/routes/app_pages.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
 }
 
 class MyApp extends GetMaterialApp {
