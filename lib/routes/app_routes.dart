@@ -13,4 +13,3 @@ abstract class Path {
   static const BOTTOMNAVBAR = '/bottomnavbar';
   static const EMERGENCY_PAGE = '/emergencyview';
 }
-
