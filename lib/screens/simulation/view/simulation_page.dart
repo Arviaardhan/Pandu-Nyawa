@@ -4,12 +4,12 @@ import 'package:pandu_nyawa/screens/identify_page/quiz_page/view/quiz_view.dart'
 import '../../../data/models/identify_model/identify_model.dart';
 import '../../../data/models/identify_quiz_model/identify_quiz_model.dart';
 import '../../../widgets/drawer.dart';
+import '../../identify_page/detail_page/controller/detail_controller.dart';
 
 class SimulationPage extends StatelessWidget {
   final List<IdentifyModel> lukaModels;
-  final List<QuizModel> quizzes; // Add this to pass quiz data
-
-  const SimulationPage({Key? key, required this.lukaModels, required this.quizzes}) : super(key: key);
+  DetailIdentifyController detailIdentifyController = Get.put(DetailIdentifyController());
+   SimulationPage({Key? key, required this.lukaModels,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +82,9 @@ class SimulationPage extends StatelessWidget {
                         GestureDetector(
                           onTap: () {
                             // Navigate to the QuizIdentifyPage instead of DetailIdentifyPage
-                            Get.to(() => QuizIdentifyPage(quizzes: quizzes));
+                            // print(modelsInGroup[groupIndex]);
+                            IdentifyModel lastSubab = modelsInGroup.last;
+                            Get.to(() => QuizIdentifyPage(quizzes: lastSubab.quizzes));
                           },
                           child: Container(
                             margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.01),

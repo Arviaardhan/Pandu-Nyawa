@@ -39,7 +39,7 @@ class BottomNavbar extends StatelessWidget {
       HomePage(),
       FirstAidPage(),
       IdentifyPage(lukaModels: lukaModels ?? []),
-      SimulationPage(lukaModels: lukaModels ?? [], quizzes: [], ),
+      SimulationPage(lukaModels: lukaModels ?? [],),
       EmergencyPage()
     ];
 
