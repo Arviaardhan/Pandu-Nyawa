@@ -36,7 +36,7 @@ class CustomElevatedButton extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.25), // Adjust the color and opacity as needed
-            offset: Offset(0, 4.5), // x = 0, y = 4.5
+            offset: const Offset(0, 4.5), // x = 0, y = 4.5
             blurRadius: 4.5, // Blur radius
             spreadRadius: 0, // Spread radius
           ),
@@ -58,8 +58,8 @@ class CustomElevatedButton extends StatelessWidget {
                 color: iconColor,
                 shape: BoxShape.circle,
               ),
-              child : Center(child: isSvg ? SvgPicture.asset(IconThemes.iconSimulation,color: buttonColor,width: 30,height: 25,) : Icon(icons,color: buttonColor,size: 30,)),
               padding: EdgeInsets.only(top: 5,bottom: bottomPadding,right: 5,left: 5),
+              child : Center(child: isSvg ? SvgPicture.asset(IconThemes.iconSimulation,color: buttonColor,width: 30,height: 25,) : Icon(icons,color: buttonColor,size: 30,)),
             ),
             SizedBox(width: screenWidth * 0.03),
             Text(

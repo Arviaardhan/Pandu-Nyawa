@@ -29,10 +29,10 @@ class IdentifyPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: Color(0xFFFFF5D7),
+      backgroundColor: const Color(0xFFFFF5D7),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenHeight * 0.08),
-        child: AppbarCustom(),
+        child: const AppbarCustom(),
       ),
       endDrawer: DrawerCustom(),
       body: Padding(
@@ -45,7 +45,7 @@ class IdentifyPage extends StatelessWidget {
                 'Identifikasi Gejala',
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: screenWidth * 0.05),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Expanded(
                 child: ListView.builder(
                   itemCount: groupedModels.keys.length,
@@ -82,7 +82,7 @@ class IdentifyPage extends StatelessWidget {
                         ),
                         ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: modelsInGroup.length,
                           itemBuilder: (context, index) {
                             int index2 = lukaModels.indexWhere((element) => element.subBab == modelsInGroup[index].subBab,);

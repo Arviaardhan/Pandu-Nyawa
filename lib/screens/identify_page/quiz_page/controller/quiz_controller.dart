@@ -31,7 +31,7 @@ class QuizIdentifyController extends GetxController {
       answerSelected.value = false; // Reset flag pemilihan jawaban
       hasAnsweredCorrectly.value = false; // Reset flag jawaban benar
 
-      Future.delayed(Duration(milliseconds: 100), () {
+      Future.delayed(const Duration(milliseconds: 100), () {
         canNavigate.value = true; // Mengizinkan navigasi lagi untuk pertanyaan berikutnya
       });
     }
@@ -40,7 +40,7 @@ class QuizIdentifyController extends GetxController {
   void showResult() {
     Get.defaultDialog(
       title: "Kuis Selesai",
-      titleStyle: TextStyle(
+      titleStyle: const TextStyle(
         fontSize: 20, // Set the title font size
         fontWeight: FontWeight.bold, // Set the title font weight
         color: Colors.blueAccent, // Set the title color
@@ -48,8 +48,8 @@ class QuizIdentifyController extends GetxController {
       content: Column(
         mainAxisSize: MainAxisSize.min, // Change to min to prevent overflow
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0), // Add vertical padding
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 16.0), // Add vertical padding
             child: Text(
               "Terima kasih telah mengikuti kuis!",
               style: TextStyle(
@@ -64,15 +64,15 @@ class QuizIdentifyController extends GetxController {
               Get.back();
               Get.back();
             },
-            child: Text("Kembali"),
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: Colors.blueAccent, // Set button text color
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12), // Set button padding
-              textStyle: TextStyle(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12), // Set button padding
+              textStyle: const TextStyle(
                 fontSize: 16, // Set button text size
               ),
             ),
+            child: const Text("Kembali"),
           ),
         ],
       ),
@@ -92,7 +92,7 @@ class QuizIdentifyController extends GetxController {
         hasAnsweredCorrectly.value = true; // Tandai jawaban benar
 
         // Memungkinkan navigasi setelah 3 detik
-        Future.delayed(Duration(seconds: 3), () {
+        Future.delayed(const Duration(seconds: 3), () {
           if (hasAnsweredCorrectly.value) {
             navigateToNextQuiz(quizzes); // Navigasi otomatis setelah 3 detik
           }
@@ -110,11 +110,11 @@ class QuizIdentifyController extends GetxController {
       Get.snackbar(
         title,
         message,
-        duration: Duration(seconds: 2), // Duration for the Snackbar
+        duration: const Duration(seconds: 2), // Duration for the Snackbar
       );
 
       // Reset the flag after the duration
-      Future.delayed(Duration(seconds: 2), () {
+      Future.delayed(const Duration(seconds: 2), () {
         isSnackBarOpen.value = false; // Set to false after the Snackbar is dismissed
       });
     }

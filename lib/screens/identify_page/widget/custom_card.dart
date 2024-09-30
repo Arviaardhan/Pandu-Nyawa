@@ -25,8 +25,6 @@ class CustomCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         detailIdentifyController.currentSubBabIndex.value = index;
-        print('ini index nya $index');
-        print('ini currentSubBabIndex nya ${detailIdentifyController.currentSubBabIndex.value}');
         Get.to(() => DetailIdentifyPage(lukaModel: lukaModel, quizType: 'Tipe Quiz',), binding: DetailIdentifyBinding());
       },
       child: Container(

@@ -33,9 +33,9 @@ class AppbarCustom extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                       vertical: 6, horizontal: screenWidth * 0.05),
                   decoration: BoxDecoration(
-                      color: Color(0xFFE8B931),
+                      color: const Color(0xFFE8B931),
                       borderRadius: BorderRadius.circular(10)),
-                  child: Icon(Icons.person),
+                  child: const Icon(Icons.person),
                 ),
               ),
             ),

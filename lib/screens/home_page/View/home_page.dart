@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pandu_nyawa/screens/home_page/Controller/home_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pandu_nyawa/screens/home_page/component/footer.dart';
 import 'package:pandu_nyawa/widgets/button.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
-import '../../../themes/icon.dart';
 import '../../../widgets/drawer.dart';
 import '../../../widgets/reusable_appbar.dart';
 import '../../navigation_page/controller/navigator_controller.dart';
@@ -25,10 +22,10 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       extendBody: true,
-      backgroundColor: Color(0xFFFFF5D7),
+      backgroundColor: const Color(0xFFFFF5D7),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenHeight * 0.08),
-        child: AppbarCustom(),
+        child: const AppbarCustom(),
       ),
       endDrawer:DrawerCustom(),
       body: SingleChildScrollView(
@@ -49,13 +46,13 @@ class HomePage extends StatelessWidget {
                             'lib/assets/icons/img.png',
                             height: screenHeight * 0.05,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 3,
                           ),
                           Text(
                             'Panduan Modern Penyelamat Nyawa',
                             style: GoogleFonts.poppins(
-                              color: Color(0xFF26474C),
+                              color: const Color(0xFF26474C),
                               fontWeight: FontWeight.w700,
                               fontSize: 10,
                             ),
@@ -76,9 +73,9 @@ class HomePage extends StatelessWidget {
                                       child: CustomElevatedButton(
                                         height: screenHeight * 0.07,
                                         text: 'First Aid',
-                                        buttonColor: homeController.currentindex.value == 0 ?  Color(0xFFF9AF2A): Colors.white ,
+                                        buttonColor: homeController.currentindex.value == 0 ?  const Color(0xFFF9AF2A): Colors.white ,
                                         style: GoogleFonts.lexend(fontSize: 13, color:  homeController.currentindex.value == 0 ? Colors.white : Colors.black, fontWeight: FontWeight.w600),
-                                        iconColor: homeController.currentindex.value == 0 ? Colors.white : Color(0xFFF9AF2A),
+                                        iconColor: homeController.currentindex.value == 0 ? Colors.white : const Color(0xFFF9AF2A),
                                         onPressed: () {
                                           homeController.carouselSliderController.animateToPage(0); // Jump to the second slide
                                         },icons: Icons.health_and_safety,
@@ -87,7 +84,7 @@ class HomePage extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
                                   Obx(() =>
@@ -96,8 +93,8 @@ class HomePage extends StatelessWidget {
                                         height: screenHeight * 0.07,
                                         text: 'Identify',
                                         style: GoogleFonts.lexend(fontSize: 13, color:  homeController.currentindex.value == 1 ? Colors.white : Colors.black, fontWeight: FontWeight.w600),
-                                        buttonColor: homeController.currentindex.value == 1 ?Color(0xFF6750A4):Colors.white,
-                                        iconColor: homeController.currentindex.value == 1 ?Colors.white: Color(0xFF6750A4),
+                                        buttonColor: homeController.currentindex.value == 1 ?const Color(0xFF6750A4):Colors.white,
+                                        iconColor: homeController.currentindex.value == 1 ?Colors.white: const Color(0xFF6750A4),
                                         onPressed: () {
                                           homeController.carouselSliderController.animateToPage(1); // Jump to the second slide
                                         }, icons: Icons.search,
@@ -109,7 +106,7 @@ class HomePage extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             SizedBox(
@@ -119,7 +116,7 @@ class HomePage extends StatelessWidget {
                                 children: [
                                   Obx(() => Expanded(
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 300), // Adjust the duration as needed
+                                      duration: const Duration(milliseconds: 300), // Adjust the duration as needed
                                       child: CustomElevatedButton(
                                         height: screenHeight * 0.07,
                                         style: GoogleFonts.lexend(
@@ -128,8 +125,8 @@ class HomePage extends StatelessWidget {
                                             fontWeight: FontWeight.w600
                                         ),
                                         text: 'Simulation',
-                                        buttonColor: homeController.currentindex.value == 2 ? Color(0xFF649DF6) : Colors.white,
-                                        iconColor: homeController.currentindex.value == 2 ? Colors.white : Color(0xFF649DF6),
+                                        buttonColor: homeController.currentindex.value == 2 ? const Color(0xFF649DF6) : Colors.white,
+                                        iconColor: homeController.currentindex.value == 2 ? Colors.white : const Color(0xFF649DF6),
                                         onPressed: () {
                                           homeController.carouselSliderController.animateToPage(2); // Jump to the second slide
                                         },isSvg: true,
@@ -139,7 +136,7 @@ class HomePage extends StatelessWidget {
                                     ),
                                   )),
 
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
                                   // Icon(Icons.shield),
@@ -148,8 +145,8 @@ class HomePage extends StatelessWidget {
                                       height: screenHeight * 0.07,
                                       text: 'Emergency',
                                       style: GoogleFonts.lexend(fontSize: 13, color:  homeController.currentindex.value == 3 ?  Colors.white  : Colors.black, fontWeight: FontWeight.w600),
-                                      buttonColor: homeController.currentindex.value == 3 ? Color(0xFFB3261E) : Colors.white,
-                                      iconColor:homeController.currentindex.value == 3 ?Colors.white: Color(0xFFB3261E),
+                                      buttonColor: homeController.currentindex.value == 3 ? const Color(0xFFB3261E) : Colors.white,
+                                      iconColor:homeController.currentindex.value == 3 ?Colors.white: const Color(0xFFB3261E),
                                       onPressed: () {
 
                                         homeController.carouselSliderController.animateToPage(3); // Jump to the second slide
@@ -195,7 +192,7 @@ class HomePage extends StatelessWidget {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Color(0xFFF9AF2A),
+                                  color: const Color(0xFFF9AF2A),
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
@@ -211,7 +208,7 @@ class HomePage extends StatelessWidget {
                               child: Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    color: Color(0xFF649DF6),
+                                    color: const Color(0xFF649DF6),
                                   ),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
@@ -227,7 +224,7 @@ class HomePage extends StatelessWidget {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Color(0xFF649DF6),
+                                  color: const Color(0xFF649DF6),
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
@@ -243,7 +240,7 @@ class HomePage extends StatelessWidget {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Color(0xFFB3261E),
+                                  color: const Color(0xFFB3261E),
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
