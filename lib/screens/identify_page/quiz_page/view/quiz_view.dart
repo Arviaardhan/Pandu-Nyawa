@@ -18,11 +18,11 @@ class QuizIdentifyPage extends StatelessWidget {
     final QuizIdentifyController controller = Get.put(QuizIdentifyController());
 
     return Scaffold(
-      backgroundColor: Color(0xFFFFF5D7),
+      backgroundColor: const Color(0xFFFFF5D7),
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: Text('Quiz'),
+        title: const Text('Quiz'),
       ),
       body: SingleChildScrollView(
         child: Obx(() {
@@ -34,14 +34,14 @@ class QuizIdentifyPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                Text(
+                const Text(
                   'Test Simulasi',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Text(
                   quizModel.question,
-                  style: TextStyle(fontSize: 18),
+                  style: const TextStyle(fontSize: 18),
                   textAlign: TextAlign.start,
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
@@ -57,18 +57,18 @@ class QuizIdentifyPage extends StatelessWidget {
                         containerColor = Colors.green;
                         icon = Padding(
                           padding: EdgeInsets.only(right: screenWidth * 0.05),
-                          child: Icon(Icons.check, color: Colors.white),
+                          child: const Icon(Icons.check, color: Colors.white),
                         );
                       } else {
                         containerColor = Colors.red;
                         icon = Padding(
                           padding: EdgeInsets.only(right: screenWidth * 0.05),
-                          child: Icon(Icons.close, color: Colors.white),
+                          child: const Icon(Icons.close, color: Colors.white),
                         );
                       }
                     } else {
                       containerColor = Colors.white; // Default color if not selected
-                      icon = SizedBox.shrink(); // No icon if not selected
+                      icon = const SizedBox.shrink(); // No icon if not selected
                     }
 
                     return Padding(
@@ -79,7 +79,7 @@ class QuizIdentifyPage extends StatelessWidget {
                         },
                         child: Container(
                           width: double.infinity,
-                          padding: EdgeInsets.symmetric(vertical: 10),
+                          padding: const EdgeInsets.symmetric(vertical: 10),
                           decoration: BoxDecoration(
                             color: containerColor,
                             borderRadius: BorderRadius.circular(10),
@@ -100,7 +100,7 @@ class QuizIdentifyPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              controller.selectedAnswerIndex.value == index ? icon : SizedBox.shrink(),
+                              controller.selectedAnswerIndex.value == index ? icon : const SizedBox.shrink(),
                             ],
                           ),
                         ),
@@ -108,7 +108,7 @@ class QuizIdentifyPage extends StatelessWidget {
                     );
                   }).toList(),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Align(
                   alignment: Alignment.bottomRight,
                   child: Container(
@@ -116,7 +116,7 @@ class QuizIdentifyPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
-                        BoxShadow(
+                        const BoxShadow(
                           color: Colors.black26,
                           blurRadius: 4,
                           offset: Offset(0, 2),
@@ -128,7 +128,7 @@ class QuizIdentifyPage extends StatelessWidget {
                       bool isLastQuestion = controller.currentIndex.value == quizzes.length - 1;
 
                       return IconButton(
-                        icon: isLastQuestion ? Icon(Icons.check) : Icon(Icons.arrow_forward),
+                        icon: isLastQuestion ? const Icon(Icons.check) : const Icon(Icons.arrow_forward),
                           onPressed: () {
                             if (controller.answerSelected.value) {
                               // Periksa apakah jawaban yang dipilih benar
@@ -140,21 +140,21 @@ class QuizIdentifyPage extends StatelessWidget {
                                   // Tampilkan dialog konfirmasi
                                   Get.defaultDialog(
                                     title: "Konfirmasi",
-                                    content: Padding(
+                                    content: const Padding(
                                       padding: EdgeInsets.symmetric(horizontal: 30),
                                       child: Text("Apakah Anda yakin ingin mengakhiri kuis?"),
                                     ),
                                     actions: [
                                       TextButton(
                                         onPressed: () => Get.back(),
-                                        child: Text("Tidak"),
+                                        child: const Text("Tidak"),
                                       ),
                                       TextButton(
                                         onPressed: () {
                                           Get.back();
                                           controller.showResult();
                                         },
-                                        child: Text("Iya"),
+                                        child: const Text("Iya"),
                                       ),
                                     ],
                                   );

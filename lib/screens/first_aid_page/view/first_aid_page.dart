@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pandu_nyawa/screens/first_aid_page/controller/first_aid_controller.dart';
+import 'package:pandu_nyawa/screens/first_aid_page/widget/rakwidget.dart';
 
 import '../../../widgets/drawer.dart';
 import '../../../widgets/reusable_appbar.dart';
@@ -17,7 +18,7 @@ class FirstAidPage extends GetView<FirstAidController> {
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(screenHeight * 0.08),
-          child: AppbarCustom(),
+          child: const AppbarCustom(),
         ),
         endDrawer: DrawerCustom(),
         backgroundColor: const Color(0xFFFFF5D7),
@@ -34,136 +35,12 @@ class FirstAidPage extends GetView<FirstAidController> {
                   color: Colors.black,
                 ),
               ),
-            Stack(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: screenHeight * 0.08),
-                  child: Image.asset(
-                    'lib/assets/images/rak_first_aid.png',
-                  ),
-                ),
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            controller.currentindex.value = 1;
-                            controller.mainTitle();
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.only(top: screenHeight * 0.048),
-                            child: Image.asset(
-                              'lib/assets/images/anti2.png',
-                              height: screenHeight * 0.07,
-                              width: screenWidth * 0.25,
-                              fit: BoxFit.fitWidth,
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            controller.currentindex.value = 2;
-                            controller.mainTitle();
-                          },
-                          child: Image.asset(
-                            'lib/assets/images/Inhaler.PNG',
-                            fit: BoxFit.cover,
-                            height: screenHeight * 0.10,
-                            width: screenWidth * 0.25,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            controller.currentindex.value = 3;
-                            controller.mainTitle();
-                          },
-                          child: Image.asset(
-                            'lib/assets/images/bandage.PNG',
-                            fit: BoxFit.cover,
-                            height: screenHeight * 0.10,
-                            width: screenWidth * 0.26,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: screenHeight * 0.04),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            controller.currentindex.value = 4;
-                            controller.mainTitle();
-                          },
-                          child: Image.asset(
-                            'lib/assets/images/kaki.png',
-                            fit: BoxFit.cover,
-                            height: screenHeight * 0.13,
-                            width: screenWidth * 0.28,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            controller.currentindex.value = 5;
-                            controller.mainTitle();
-                          },
-                          child: Image.asset(
-                            'lib/assets/images/salep.PNG',
-                            height: screenHeight * 0.13,
-                            width: screenWidth * 0.26,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            controller.currentindex.value = 6;
-                            controller.mainTitle();
-                          },
-                          child: Image.asset(
-                            'lib/assets/images/glukosw.png',
-                            fit: BoxFit.cover,
-                            height: screenHeight * 0.12,
-                            width: screenWidth * 0.28,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: screenHeight * 0.05),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            controller.currentindex.value = 7;
-                            controller.mainTitle();
-                          },
-                          child: Image.asset(
-                            'lib/assets/images/choking.PNG',
-                            fit: BoxFit.cover,
-                            height: screenHeight * 0.1,
-                            width: screenWidth * 0.26,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            controller.currentindex.value = 8;
-                            controller.mainTitle();
-                          },
-                          child: Image.asset(
-                            'lib/assets/images/distress.PNG',
-                            height: screenHeight * 0.1,
-                            width: screenWidth * 0.26,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
+              RakWidget(arrayImages: const ['lib/assets/images/anti2.png','lib/assets/images/Inhaler.PNG','lib/assets/images/bandage.PNG'], indexImages: const [1,2,3]),
+              RakWidget(arrayImages: const ['lib/assets/images/kaki.png','lib/assets/images/salep.PNG','lib/assets/images/glukosw.png'], indexImages: const [4,5,6]),
+              RakWidget(arrayImages: const ['lib/assets/images/choking.PNG','lib/assets/images/distress.PNG'], indexImages: const [7,8]),
+              SizedBox(height: screenHeight * 0.01,),
             Obx(() => AnimatedSize(
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
                   child: Visibility(
                     visible: controller.currentindex.value != 0,
@@ -205,41 +82,7 @@ class FirstAidPage extends GetView<FirstAidController> {
                     ),
                   ),
                 ),),
-              // Obx(() {
-              //   return AnimatedSize( duration: const Duration(milliseconds: 300),
-              //     curve: Curves.easeInOut,
-              //     child: _value.value == 2
-              //         ? Container(
-              //         width: double.infinity,
-              //         padding: const EdgeInsets.all(10),
-              //         decoration: const BoxDecoration(
-              //             color: Colors.white,
-              //             border: Border( bottom: BorderSide(color: Colors.black),
-              //               left: BorderSide(color: Colors.black),
-              //               right: BorderSide(color: Colors.black),),
-              //             borderRadius: BorderRadius.only(bottomRight: Radius.circular(5),bottomLeft: Radius.circular(5))
-              //         ),
-              //         child:
-              //         Column(
-              //           crossAxisAlignment: CrossAxisAlignment.start,
-              //           children: [
-              //             const Text(
-              //               'Pengembalian uang jika memakai tunai 100% tanpa biaya admin',
-              //               style: TextStyle(color: Colors.black, fontSize: 16),
-              //             ),
-              //             Text(
-              //                 '*Uang pengembalian ${currencyFormat.format(controller.calculatePriceCancel(order.paymentMethod ?? 'tunai', (order.orderMethod == 'delivery' ? totalprice += order.deliveryfee!.toInt() : totalprice) ))}',
-              //                 style: boldTextStyle
-              //             ),
-              //             const  SizedBox(height: 10,),
-              //           ],
-              //         )
-              //
-              //     )
-              //         : const SizedBox.shrink(), // Return an empty container if not selected
-              //   );
-              // }),
-              SizedBox(height: screenHeight * 0.1,)
+
             ],
           ),
         ));

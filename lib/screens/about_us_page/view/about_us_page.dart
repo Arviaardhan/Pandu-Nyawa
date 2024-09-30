@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../themes/font_style.dart';
+
 class AboutUsPage extends StatelessWidget {
   const AboutUsPage({Key? key}) : super(key: key);
 
@@ -10,7 +12,7 @@ class AboutUsPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(title: const Text(''),surfaceTintColor: Colors.white,backgroundColor: Colors.white,),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Colors.white,
@@ -27,7 +29,15 @@ class AboutUsPage extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Image.asset('lib/assets/images/meetourteam.png'),
+                  child: Image.asset('lib/assets/images/about-us.png'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Text('Pandu Nyawa adalah sebuah organisasi nirlaba (NGO) pemuda yang berfokus pada upaya meningkatkan pengetahuan, keterampilan, dan kesiapsiagaan masyarakat serta siswa/i sekolah dalam memberikan pertolongan pertama pada situasi darurat. Pandu Nyawa bertujuan untuk mewujudkan masyarakat yang tangguh dan mampu menjaga keselamatan diri serta orang lain melalui edukasi dan pelatihan yang komprehensif.',style: aboutUs,textAlign: TextAlign.center,),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Image.asset('lib/assets/images/meetourteam2.png'),
                 ),
                 _buildAboutUs("lib/assets/images/person/zaenal.jpg", "Zaenal",
                     "Initiative Leader"),
@@ -71,7 +81,7 @@ class AboutUsPage extends StatelessWidget {
 }
 
 Widget _buildAboutUs(String imageAssets, name, role) {
-  return Container(
+  return SizedBox(
     height: 220,
     child: Stack(
       alignment: Alignment.center,
@@ -100,7 +110,7 @@ Widget _buildAboutUs(String imageAssets, name, role) {
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     shadows: [
-                      Shadow(
+                      const Shadow(
                         color: Colors.green,
                         offset: Offset(1, 1),
                         blurRadius: 2,
@@ -117,7 +127,7 @@ Widget _buildAboutUs(String imageAssets, name, role) {
                     shadows: [
                       Shadow(
                         color: Colors.green[900]!,
-                        offset: Offset(1, 1),
+                        offset: const Offset(1, 1),
                         blurRadius: 2,
                       ),
                     ],

@@ -40,10 +40,10 @@ class DetailIdentifyPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: Color(0xFFFFF5D7),
+      backgroundColor: const Color(0xFFFFF5D7),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenHeight * 0.08),
-        child: AppbarCustom(),
+        child: const AppbarCustom(),
       ),
       endDrawer: DrawerCustom(),
       body: Padding(
@@ -61,7 +61,7 @@ class DetailIdentifyPage extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             )),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Obx(() => Text(
               detailIdentifyController.lukaModel.value.title,
               style: TextStyle(
@@ -69,7 +69,7 @@ class DetailIdentifyPage extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             )),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Container(
               width: screenWidth.toDouble(),
               height: screenHeight * 0.2,
@@ -77,7 +77,7 @@ class DetailIdentifyPage extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
-                  BoxShadow(
+                  const BoxShadow(
                     color: Colors.black,
                     spreadRadius: 1,
                     blurRadius: 3,
@@ -89,12 +89,12 @@ class DetailIdentifyPage extends StatelessWidget {
                 if (detailIdentifyController.lukaModel.value.imagePath.isNotEmpty) {
                   return Image.asset(detailIdentifyController.lukaModel.value.imagePath[detailIdentifyController.currentImageIndex.value]);
                 } else {
-                  return SizedBox(); // Handle case where there are no images
+                  return const SizedBox(); // Handle case where there are no images
                 }
               }),
             ),
             //Heading
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             //Body
             Expanded(
@@ -120,16 +120,16 @@ class DetailIdentifyPage extends StatelessWidget {
                       return Container(
                         margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                         decoration: BoxDecoration(
-                          color: Color(0xFFFF9D29),
+                          color: const Color(0xFFFF9D29),
                           borderRadius: BorderRadius.circular(15),
                           boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), spreadRadius: 1, blurRadius: 3)],
                         ),
                         child: ListView(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           children: stepsToDisplay.map((step) {
                             return Padding(
                               padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-                              child: Text(step, style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white)),
+                              child: Text(step, style: const TextStyle(fontWeight: FontWeight.w500, color: Colors.white)),
                             );
                           }).toList(),
                         ),
@@ -152,18 +152,18 @@ class DetailIdentifyPage extends StatelessWidget {
                               color: Colors.black.withOpacity(0.2),
                               spreadRadius: 1,
                               blurRadius: 3,
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             ),
                           ],
                         ),
                         child: IconButton(
-                          icon: Icon(Icons.arrow_back_ios_new, size: 24, color: Colors.black),
+                          icon: const Icon(Icons.arrow_back_ios_new, size: 24, color: Colors.black),
                           onPressed: () {
                             detailIdentifyController.previousPage();
                           },
                         ),
                       )
-                          : SizedBox.shrink();
+                          : const SizedBox.shrink();
                     }),
                   ),
                   // Next Page Button
@@ -185,12 +185,12 @@ class DetailIdentifyPage extends StatelessWidget {
                               color: Colors.black.withOpacity(0.2),
                               spreadRadius: 1,
                               blurRadius: 3,
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             ),
                           ],
                         ),
                         child: IconButton(
-                          icon: Icon(Icons.arrow_forward_ios, size: 24, color: Colors.black),
+                          icon: const Icon(Icons.arrow_forward_ios, size: 24, color: Colors.black),
                           onPressed: () {
                             if (isLastPage) {
                               detailIdentifyController.nextSubBab(); // Final action when it's the last page
@@ -225,19 +225,18 @@ class DetailIdentifyPage extends StatelessWidget {
                             return detailIdentifyController.lukaModel.value.quizzes.isNotEmpty
                                 ? ElevatedButton(
                               onPressed: () {
-                                print(detailIdentifyController.lukaModel.value.quizzes);
                                 Get.to(() => QuizIdentifyPage(quizzes: detailIdentifyController.lukaModel.value.quizzes));
                               },
                               style: OutlinedButton.styleFrom(
-                                side: BorderSide(color: Colors.black, width: 1.0),
+                                side: const BorderSide(color: Colors.black, width: 1.0),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                                backgroundColor: Color(0xFFFFF5D7),
+                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                                backgroundColor: const Color(0xFFFFF5D7),
                               ),
-                              child: Text('Test Simulasi', style: TextStyle(color: Colors.black)),
-                            ) : SizedBox(); // Use SizedBox.shrink() if there are no quizzes
+                              child: const Text('Test Simulasi', style: TextStyle(color: Colors.black)),
+                            ) : const SizedBox(); // Use SizedBox.shrink() if there are no quizzes
                           }),
 
                           ElevatedButton(
@@ -245,14 +244,14 @@ class DetailIdentifyPage extends StatelessWidget {
                               Get.to(EmergencyPage());
                             },
                             style: OutlinedButton.styleFrom(
-                              side: BorderSide(color: Colors.black, width: 1.0),
+                              side: const BorderSide(color: Colors.black, width: 1.0),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
-                              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                              backgroundColor: Color(0xFFFFF5D7),
+                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                              backgroundColor: const Color(0xFFFFF5D7),
                             ),
-                            child: Text('Emergency', style: TextStyle(color: Colors.black)),
+                            child: const Text('Emergency', style: TextStyle(color: Colors.black)),
                           ),
                         ],
                       ),
@@ -260,7 +259,7 @@ class DetailIdentifyPage extends StatelessWidget {
                   ),
                 );
               } else {
-                return SizedBox.shrink(); // Hide the buttons if not on the last page
+                return const SizedBox.shrink(); // Hide the buttons if not on the last page
               }
             }),
 

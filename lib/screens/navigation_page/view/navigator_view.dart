@@ -37,7 +37,7 @@ class BottomNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> pages = [
       HomePage(),
-      FirstAidPage(),
+      const FirstAidPage(),
       IdentifyPage(lukaModels: lukaModels ?? []),
       SimulationPage(lukaModels: lukaModels ?? [],),
       EmergencyPage()
@@ -58,92 +58,90 @@ class BottomNavbar extends StatelessWidget {
       bottomNavigationBar: Obx(() {
         return Offstage(
           offstage: controller.currentIndex.value == 0,
-          child: Container(
-            child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0),
-              ),
-              child: GNav(
-                selectedIndex: controller.currentIndex.value,
-                onTabChange: controller.changeIndex,
-                backgroundColor: Colors.white,
-                color: Colors.black, // Unselected item color
-                tabBackgroundColor: buttonNavbar(controller.currentIndex.value),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5), // Adjust padding as needed
-                tabMargin: EdgeInsets.symmetric(vertical: 5),
-                gap: 8, // Gap between icon and text
-                tabBorderRadius: 30,
-                tabs: [
-                  GButton(
-                    icon: Icons.home,
-                    text: 'Home',
-                    textStyle: BottomNavbarSelectedTextStyle(0),
-                  ),
-                  GButton(
-                    icon: Icons.shield,
-                    leading: Obx(() => controller.currentIndex.value == 1
-                        ? Container(
-                      padding: const EdgeInsets.all(5),
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(IconThemes.iconShield, color: Colors.orange,width: 20,height: 20,fit: BoxFit.fill,),
-                          const SizedBox(width: 5),
-                          Text('First Aid', style: BottomNavbarSelectedTextStyle(1)),
-                        ],
-                      ),
-                    )
-                        : SvgPicture.asset(IconThemes.iconShield, color: Colors.black,width: 20,height: 20,fit: BoxFit.fill),),
-                  ),
-                  GButton(
-                    icon: Icons.search,
-                    leading: Obx(() => controller.currentIndex.value == 2
-                        ? Container(
-                      padding: const EdgeInsets.all(3),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.search, color: Color(0xFF6750A4)),
-                          const SizedBox(width: 5),
-                          Text('Identify', style: BottomNavbarSelectedTextStyle(2)),
-                        ],
-                      ),
-                    )
-                        : const Icon(Icons.search, color: Colors.black)),
-                  ),
-                  GButton(
-                    icon: Icons.monitor_heart_outlined,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(10.0),
+              topRight: Radius.circular(10.0),
+            ),
+            child: GNav(
+              selectedIndex: controller.currentIndex.value,
+              onTabChange: controller.changeIndex,
+              backgroundColor: Colors.white,
+              color: Colors.black, // Unselected item color
+              tabBackgroundColor: buttonNavbar(controller.currentIndex.value),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5), // Adjust padding as needed
+              tabMargin: const EdgeInsets.symmetric(vertical: 5),
+              gap: 8, // Gap between icon and text
+              tabBorderRadius: 30,
+              tabs: [
+                GButton(
+                  icon: Icons.home,
+                  text: 'Home',
+                  textStyle: BottomNavbarSelectedTextStyle(0),
+                ),
+                GButton(
+                  icon: Icons.shield,
+                  leading: Obx(() => controller.currentIndex.value == 1
+                      ? Container(
+                    padding: const EdgeInsets.all(5),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(IconThemes.iconShield, color: Colors.orange,width: 20,height: 20,fit: BoxFit.fill,),
+                        const SizedBox(width: 5),
+                        Text('First Aid', style: BottomNavbarSelectedTextStyle(1)),
+                      ],
+                    ),
+                  )
+                      : SvgPicture.asset(IconThemes.iconShield, color: Colors.black,width: 20,height: 20,fit: BoxFit.fill),),
+                ),
+                GButton(
+                  icon: Icons.search,
+                  leading: Obx(() => controller.currentIndex.value == 2
+                      ? Container(
+                    padding: const EdgeInsets.all(3),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.search, color: Color(0xFF6750A4)),
+                        const SizedBox(width: 5),
+                        Text('Identify', style: BottomNavbarSelectedTextStyle(2)),
+                      ],
+                    ),
+                  )
+                      : const Icon(Icons.search, color: Colors.black)),
+                ),
+                GButton(
+                  icon: Icons.monitor_heart_outlined,
 
-                    leading: Obx(() => controller.currentIndex.value == 3
-                        ? Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 3),
-                      child: Row(
-                        children: [
+                  leading: Obx(() => controller.currentIndex.value == 3
+                      ? Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 3),
+                    child: Row(
+                      children: [
 
-                           SvgPicture.asset(IconThemes.iconSimulation,color: Color.fromARGB(255, 38, 71, 76),width: 15,height: 17,),
-                          const SizedBox(width: 2),
-                          Text('Simulation', style: BottomNavbarSelectedTextStyle(3)),
-                        ],
-                      ),
-                    )
-                        : SvgPicture.asset(IconThemes.iconSimulation,color: Colors.black,width: 15,height: 17,),)
-                  ),
-                  GButton(
-                    icon: Icons.warning_outlined,
-                    leading: Obx(() => controller.currentIndex.value == 4
-                        ? Container(
-                      padding: const EdgeInsets.all(3),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.warning_outlined, color: Color(0xFFB3261E)),
-                          const SizedBox(width: 5),
-                          Text('Emergency', style: BottomNavbarSelectedTextStyle(4)),
-                        ],
-                      ),
-                    )
-                        : const Icon(Icons.warning_outlined, color: Colors.black,)),
-                  ),
-                ],
-              ),
+                         SvgPicture.asset(IconThemes.iconSimulation,color: const Color.fromARGB(255, 38, 71, 76),width: 15,height: 17,),
+                        const SizedBox(width: 2),
+                        Text('Simulation', style: BottomNavbarSelectedTextStyle(3)),
+                      ],
+                    ),
+                  )
+                      : SvgPicture.asset(IconThemes.iconSimulation,color: Colors.black,width: 15,height: 17,),)
+                ),
+                GButton(
+                  icon: Icons.warning_outlined,
+                  leading: Obx(() => controller.currentIndex.value == 4
+                      ? Container(
+                    padding: const EdgeInsets.all(3),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.warning_outlined, color: Color(0xFFB3261E)),
+                        const SizedBox(width: 5),
+                        Text('Emergency', style: BottomNavbarSelectedTextStyle(4)),
+                      ],
+                    ),
+                  )
+                      : const Icon(Icons.warning_outlined, color: Colors.black,)),
+                ),
+              ],
             ),
           ),
         );

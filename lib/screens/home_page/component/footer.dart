@@ -11,10 +11,10 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
           color: colors,
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
+          borderRadius: const BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
       ),
       height: screenHeight * 0.3,width: double.infinity,child:
     Column(
@@ -32,7 +32,7 @@ class Footer extends StatelessWidget {
                 height: screenHeight * 0.075,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Column(
@@ -41,13 +41,13 @@ class Footer extends StatelessWidget {
                   'lib/assets/icons/img.png',
                   height: screenHeight * 0.04,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 3,
                 ),
                 Text(
                   'Panduan Modern Penyelamat Nyawa',
                   style: GoogleFonts.poppins(
-                    color: Color(0xFF26474C),
+                    color: const Color(0xFF26474C),
                     fontWeight: FontWeight.w700,
                     fontSize: 10,
                   ),

@@ -70,7 +70,6 @@ class DetailIdentifyController extends GetxController {
     if (currentPage.value < totalPages - 1) {
       currentPage.value++;
       currentImageIndex.value = (currentPage.value * 4) ~/ 4;
-      print('Next Page: ${currentPage.value}');
     } else {
       nextSubBab(); // Go to the next sub-bab if it's the last page
     }
@@ -80,7 +79,6 @@ class DetailIdentifyController extends GetxController {
     if (currentPage.value > 0) {
       currentPage.value--;
       currentImageIndex.value = (currentPage.value * 4) ~/ 4;
-      print('Previous Page: ${currentPage.value}');
     }
   }
 
@@ -90,15 +88,12 @@ class DetailIdentifyController extends GetxController {
       lukaModel.value = subBabs[currentSubBabIndex.value];
       currentPage.value = 0;
       currentImageIndex.value = 0;
-      print(subBabs.length);
-      print(currentSubBabIndex.value);
       Get.to(() => DetailIdentifyPage(
         lukaModel: lukaModel.value, // Pass the updated lukaModel
         quizType: lukaModel.value.title, // Pass the updated quiz type
       ));
-      print('Navigating to next sub-bab: ${subBabs[currentSubBabIndex.value].title}');
     } else {
-      print('You have reached the last sub-bab.');
+
     }
   }
 }

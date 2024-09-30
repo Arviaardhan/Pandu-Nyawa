@@ -18,8 +18,8 @@ class DrawerCustom extends StatelessWidget {
       child: ListView(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            decoration: BoxDecoration(color: Colors.white, boxShadow: []),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            decoration: const BoxDecoration(color: Colors.white, boxShadow: []),
             child: Center(
               child: Text(
                 'DASHBOARD',
@@ -36,18 +36,18 @@ class DrawerCustom extends StatelessWidget {
                   color: ColorsResources.primarycolorMenu,
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       ListTile(
                         title: Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.home,
                               size: 40,
                               color: Colors.black,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Text(
@@ -64,9 +64,9 @@ class DrawerCustom extends StatelessWidget {
                       ListTile(
                         title: Row(
                           children: [
-                            Icon(Icons.info_outline,
+                            const Icon(Icons.info_outline,
                                 size: 35, color: Colors.black),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Text(
@@ -76,7 +76,7 @@ class DrawerCustom extends StatelessWidget {
                           ],
                         ),
                         onTap: () {
-                          Get.to(() => AboutUsPage());
+                          Get.to(() => const AboutUsPage());
                         },
                       ),
                     ],
