@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pandu_nyawa/screens/first_aid_page/controller/first_aid_controller.dart';
 
 import '../../../widgets/drawer.dart';
+import '../../../widgets/reusable_appbar.dart';
 
 class FirstAidPage extends GetView<FirstAidController> {
   const FirstAidPage({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class FirstAidPage extends GetView<FirstAidController> {
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(screenHeight * 0.08),
-          child: _buildAppbar(screenHeight, screenWidth),
+          child: AppbarCustom(),
         ),
         endDrawer: DrawerCustom(),
         backgroundColor: const Color(0xFFFFF5D7),
@@ -33,134 +34,135 @@ class FirstAidPage extends GetView<FirstAidController> {
                   color: Colors.black,
                 ),
               ),
-              Stack(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top:screenHeight * 0.08,),
-                    child: Image.asset('lib/assets/images/rak_first_aid.png',),
+            Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: screenHeight * 0.08),
+                  child: Image.asset(
+                    'lib/assets/images/rak_first_aid.png',
                   ),
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                                controller.currentindex.value = 1;
-                                controller.mainTitle();
-                            },
-                            child: Padding(
-                              // padding: EdgeInsets.only(top: 40),
-                              padding: EdgeInsets.only(top: screenHeight * 0.048),
-                              child: Image.asset(
-                                'lib/assets/images/anti2.png',
-                                height: screenHeight * 0.07, //60
-                                width: screenWidth * 0.25, //100
-                                fit: BoxFit.fitWidth,
-                              ),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              controller.currentindex.value = 2;
-                              controller.mainTitle();
-                            },
+                ),
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            controller.currentindex.value = 1;
+                            controller.mainTitle();
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.only(top: screenHeight * 0.048),
                             child: Image.asset(
-                              'lib/assets/images/Inhaler.PNG',
-                              fit: BoxFit.cover,
-                              height: screenHeight * 0.100,
+                              'lib/assets/images/anti2.png',
+                              height: screenHeight * 0.07,
                               width: screenWidth * 0.25,
+                              fit: BoxFit.fitWidth,
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              controller.currentindex.value = 3;
-                              controller.mainTitle();
-                            },
-                            child: Image.asset(
-                              'lib/assets/images/bandage.PNG',
-                              fit: BoxFit.cover,
-                              height: screenHeight * 0.100,
-                              width: screenWidth * 0.26,
-                            ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            controller.currentindex.value = 2;
+                            controller.mainTitle();
+                          },
+                          child: Image.asset(
+                            'lib/assets/images/Inhaler.PNG',
+                            fit: BoxFit.cover,
+                            height: screenHeight * 0.10,
+                            width: screenWidth * 0.25,
                           ),
-                        ],
-                      ),
-                      SizedBox(height: screenHeight * 0.04,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              controller.currentindex.value = 4;
-                              controller.mainTitle();
-                            },
-                            child: Image.asset(
-                              'lib/assets/images/kaki.png',
-                              fit: BoxFit.cover,
-                              height: screenHeight * 0.130,
-                              width: screenWidth * 0.28, //110
-                            ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            controller.currentindex.value = 3;
+                            controller.mainTitle();
+                          },
+                          child: Image.asset(
+                            'lib/assets/images/bandage.PNG',
+                            fit: BoxFit.cover,
+                            height: screenHeight * 0.10,
+                            width: screenWidth * 0.26,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              controller.currentindex.value = 5;
-                              controller.mainTitle();
-                            },
-                            child: Image.asset(
-                              'lib/assets/images/salep.PNG',
-                              height: screenHeight * 0.130,
-                              width: screenWidth * 0.26,
-                            ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: screenHeight * 0.04),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            controller.currentindex.value = 4;
+                            controller.mainTitle();
+                          },
+                          child: Image.asset(
+                            'lib/assets/images/kaki.png',
+                            fit: BoxFit.cover,
+                            height: screenHeight * 0.13,
+                            width: screenWidth * 0.28,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              controller.currentindex.value = 6;
-                              controller.mainTitle();
-                            },
-                            child: Image.asset(
-                              'lib/assets/images/glukosw.png',
-                              fit: BoxFit.cover,
-                              height: screenHeight * 0.120,
-                              width: screenWidth * 0.28,
-                            ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            controller.currentindex.value = 5;
+                            controller.mainTitle();
+                          },
+                          child: Image.asset(
+                            'lib/assets/images/salep.PNG',
+                            height: screenHeight * 0.13,
+                            width: screenWidth * 0.26,
                           ),
-                        ],
-                      ),
-                      SizedBox(height: screenHeight * 0.05,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              controller.currentindex.value = 7;
-                              controller.mainTitle();
-                            },
-                            child: Image.asset(
-                              'lib/assets/images/choking.PNG',
-                              fit: BoxFit.cover,
-                              height: screenHeight * 0.1,
-                              width: screenWidth * 0.26,
-                            ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            controller.currentindex.value = 6;
+                            controller.mainTitle();
+                          },
+                          child: Image.asset(
+                            'lib/assets/images/glukosw.png',
+                            fit: BoxFit.cover,
+                            height: screenHeight * 0.12,
+                            width: screenWidth * 0.28,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              controller.currentindex.value = 8;
-                              controller.mainTitle();
-                            },
-                            child: Image.asset(
-                              'lib/assets/images/distress.PNG',
-                              height: screenHeight * 0.1,
-                              width: screenWidth * 0.26,
-                            ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: screenHeight * 0.05),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            controller.currentindex.value = 7;
+                            controller.mainTitle();
+                          },
+                          child: Image.asset(
+                            'lib/assets/images/choking.PNG',
+                            fit: BoxFit.cover,
+                            height: screenHeight * 0.1,
+                            width: screenWidth * 0.26,
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Obx(() => AnimatedSize(
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            controller.currentindex.value = 8;
+                            controller.mainTitle();
+                          },
+                          child: Image.asset(
+                            'lib/assets/images/distress.PNG',
+                            height: screenHeight * 0.1,
+                            width: screenWidth * 0.26,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Obx(() => AnimatedSize(
                   duration: Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
                   child: Visibility(
@@ -244,33 +246,3 @@ class FirstAidPage extends GetView<FirstAidController> {
   }
 }
 
-Widget _buildAppbar(screenHeight, screenWidth) {
-  return AppBar(
-    centerTitle: true,
-    backgroundColor: Colors.white,
-    surfaceTintColor: Colors.white,
-    title: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image.asset(
-          'lib/assets/images/logo-pandu-nyawa.png',
-          height: screenHeight * 0.075,
-        ),
-        Expanded(
-          child: Align(
-            alignment: Alignment.center,
-            child: Container(
-              padding: EdgeInsets.symmetric(
-                  vertical: 6, horizontal: screenWidth * 0.05),
-              decoration: BoxDecoration(
-                  color: const Color(0xFFE8B931),
-                  borderRadius: BorderRadius.circular(10)),
-              child: const Icon(Icons.person),
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
-}

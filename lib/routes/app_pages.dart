@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:pandu_nyawa/screens/about_us_page/binding/about_us_binding.dart';
+import 'package:pandu_nyawa/screens/about_us_page/view/about_us_page.dart';
 import 'package:pandu_nyawa/screens/emergency/binding/emergency_binding.dart';
 import 'package:pandu_nyawa/screens/emergency/view/emergency_page.dart';
 import 'package:pandu_nyawa/screens/first_aid_page/view/first_aid_page.dart';
@@ -12,7 +14,7 @@ import '../screens/navigation_page/bindings/navigator_binding.dart';
 import 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = Route.BOTTOMNAVBAR;
+  static const INITIAL = Routes.BOTTOMNAVBAR;
 
   static final routes = [
     GetPage(
@@ -43,6 +45,13 @@ class AppPages {
       page: () => EmergencyPage(),
       binding: EmergencyBinding(),  // Bind HomeController here
       transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: Path.ABOUT_US_PAGE,
+      page: () => AboutUsPage(),
+      binding: AboutUsBinding(),  // Bind HomeController here
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.fadeIn,
     ),
     // other routes
   ];

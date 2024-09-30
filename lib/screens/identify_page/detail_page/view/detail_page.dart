@@ -6,6 +6,7 @@ import 'package:pandu_nyawa/screens/identify_page/detail_page/controller/detail_
 import 'package:pandu_nyawa/screens/identify_page/quiz_page/view/quiz_view.dart';
 
 import '../../../../widgets/drawer.dart';
+import '../../../../widgets/reusable_appbar.dart';
 import '../widget/button.dart';
 
 class DetailIdentifyPage extends StatelessWidget {
@@ -42,35 +43,7 @@ class DetailIdentifyPage extends StatelessWidget {
       backgroundColor: Color(0xFFFFF5D7),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenHeight * 0.08),
-        child: AppBar(
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          surfaceTintColor: Colors.white,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                'lib/assets/images/logo-pandu-nyawa.png',
-                height: screenHeight * 0.075,
-              ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        vertical: 6, horizontal: screenWidth * 0.05),
-                    decoration: BoxDecoration(
-                        color: Color(0xFFE8B931),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Icon(Icons.person),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: AppbarCustom(),
       ),
       endDrawer: DrawerCustom(),
       body: Padding(

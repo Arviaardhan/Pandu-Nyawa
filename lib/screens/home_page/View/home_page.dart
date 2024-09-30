@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pandu_nyawa/screens/home_page/Controller/home_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,7 +7,9 @@ import 'package:pandu_nyawa/screens/home_page/component/footer.dart';
 import 'package:pandu_nyawa/widgets/button.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../../../themes/icon.dart';
 import '../../../widgets/drawer.dart';
+import '../../../widgets/reusable_appbar.dart';
 import '../../navigation_page/controller/navigator_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -25,34 +28,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Color(0xFFFFF5D7),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenHeight * 0.08),
-        child: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          surfaceTintColor: Colors.white,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                'lib/assets/images/logo-pandu-nyawa.png',
-                height: screenHeight * 0.075,
-              ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        vertical: 6, horizontal: screenWidth * 0.05),
-                    decoration: BoxDecoration(
-                        color: Color(0xFFE8B931),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Icon(Icons.person),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: AppbarCustom(),
       ),
       endDrawer:DrawerCustom(),
       body: SingleChildScrollView(
@@ -105,7 +81,9 @@ class HomePage extends StatelessWidget {
                                         iconColor: homeController.currentindex.value == 0 ? Colors.white : Color(0xFFF9AF2A),
                                         onPressed: () {
                                           homeController.carouselSliderController.animateToPage(0); // Jump to the second slide
-                                        },
+                                        },icons: Icons.health_and_safety,
+                                        bottomPadding: 5,
+                                        isSvg: false,
                                       ),
                                     ),
                                   ),
@@ -122,7 +100,9 @@ class HomePage extends StatelessWidget {
                                         iconColor: homeController.currentindex.value == 1 ?Colors.white: Color(0xFF6750A4),
                                         onPressed: () {
                                           homeController.carouselSliderController.animateToPage(1); // Jump to the second slide
-                                        },
+                                        }, icons: Icons.search,
+                                        bottomPadding: 5,
+                                        isSvg: false,
                                       ),
                                     ),
                                   ),
@@ -152,7 +132,9 @@ class HomePage extends StatelessWidget {
                                         iconColor: homeController.currentindex.value == 2 ? Colors.white : Color(0xFF649DF6),
                                         onPressed: () {
                                           homeController.carouselSliderController.animateToPage(2); // Jump to the second slide
-                                        },
+                                        },isSvg: true,
+
+                                        bottomPadding: 5,
                                       ),
                                     ),
                                   )),
@@ -171,7 +153,9 @@ class HomePage extends StatelessWidget {
                                       onPressed: () {
 
                                         homeController.carouselSliderController.animateToPage(3); // Jump to the second slide
-                                      },
+                                      },icons: Icons.warning_amber_rounded,
+                                      isSvg: false,
+                                      bottomPadding: 10,
                                     ),);
                                   })
                                 ],
