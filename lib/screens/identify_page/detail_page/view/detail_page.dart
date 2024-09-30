@@ -225,6 +225,7 @@ class DetailIdentifyPage extends StatelessWidget {
                             return detailIdentifyController.lukaModel.value.quizzes.isNotEmpty
                                 ? ElevatedButton(
                               onPressed: () {
+                                print(detailIdentifyController.lukaModel.value.quizzes);
                                 Get.to(() => QuizIdentifyPage(quizzes: detailIdentifyController.lukaModel.value.quizzes));
                               },
                               style: OutlinedButton.styleFrom(
