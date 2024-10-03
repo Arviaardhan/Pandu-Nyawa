@@ -20,7 +20,7 @@ class EmergencyPage extends GetView<EmergencyController> {
       backgroundColor: const Color(0xFFFFF5D7),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenHeight * 0.08),
-        child: const AppbarCustom(),
+        child: AppbarCustom(),
       ),
       endDrawer: DrawerCustom(),
       body: SingleChildScrollView(

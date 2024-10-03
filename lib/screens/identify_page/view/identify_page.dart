@@ -32,7 +32,7 @@ class IdentifyPage extends StatelessWidget {
       backgroundColor: const Color(0xFFFFF5D7),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenHeight * 0.08),
-        child: const AppbarCustom(),
+        child:  AppbarCustom(),
       ),
       endDrawer: DrawerCustom(),
       body: Padding(
@@ -82,7 +82,7 @@ class IdentifyPage extends StatelessWidget {
                         ),
                         ListView.builder(
                           shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
+                          physics:  NeverScrollableScrollPhysics(),
                           itemCount: modelsInGroup.length,
                           itemBuilder: (context, index) {
                             int index2 = lukaModels.indexWhere((element) => element.subBab == modelsInGroup[index].subBab,);

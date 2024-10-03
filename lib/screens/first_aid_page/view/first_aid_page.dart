@@ -18,7 +18,7 @@ class FirstAidPage extends GetView<FirstAidController> {
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(screenHeight * 0.08),
-          child: const AppbarCustom(),
+          child: AppbarCustom(),
         ),
         endDrawer: DrawerCustom(),
         backgroundColor: const Color(0xFFFFF5D7),
