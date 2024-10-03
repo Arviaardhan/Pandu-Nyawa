@@ -117,8 +117,7 @@ class BottomNavbar extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 3),
                     child: Row(
                       children: [
-
-                         SvgPicture.asset(IconThemes.iconSimulation,color: const Color.fromARGB(255, 38, 71, 76),width: 15,height: 17,),
+                         SvgPicture.asset(IconThemes.iconSimulation,color: const Color(0xFF649DF6),width: 15,height: 17,),
                         const SizedBox(width: 2),
                         Text('Simulation', style: BottomNavbarSelectedTextStyle(3)),
                       ],

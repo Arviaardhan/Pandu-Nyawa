@@ -7,7 +7,7 @@ Color getLabelColor(int index) {
   }else if (index == 2) {
     return const Color(0xFF6750A4);
   }  else if (index == 3) {
-    return const Color.fromARGB(255,38,71,76);
+    return const Color(0xFF649DF6);
   } else if (index == 4) {
     return const Color(0xFFB3261E);
   }else {
@@ -20,7 +20,7 @@ Color buttonNavbar(int index) {
   }else if (index == 2) {
     return const Color.fromARGB(255, 187, 165, 247);
   }  else if (index == 3) {
-    return const Color.fromARGB(255, 100, 152, 160);
+    return const Color.fromARGB(120, 100, 157, 246);
   } else if (index == 4) {
     return const Color.fromARGB(255, 232, 106, 99);
   }else {
